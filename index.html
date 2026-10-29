@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Næringsstoffene forklart</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Enkle forklaringer med tegninger til repetisjonsspørsmålene om næringsstoffene.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800;900&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap">
+<style>
+/* Layout: én lesekolonne med spørsmålskort i arkets rekkefølge. Tegningene ligger på ruteark.
+   Farge = næringsstoffgruppe: grønn karbohydrater, gul fett, rosa proteiner, blågrå vann/vitaminer/mineraler. */
+:root {
+  --bg: #eef3f1;
+  --surface: #ffffff;
+  --panel: #f8fbfa;
+  --grid: #e3ebe8;
+  --ink: #15202a;
+  --ink-2: #4d5b64;
+  --ink-3: #7b8a91;
+  --line: #d4dedb;
+  --org-soft: #e4ebe9;
+  --carb: #2e9e4a;
+  --carb-line: #23843c;
+  --carb-soft: #dcf1e0;
+  --fat: #eda100;
+  --fat-line: #a87200;
+  --fat-soft: #fcefcb;
+  --prot: #e87ba4;
+  --prot-line: #c2457a;
+  --prot-soft: #fbe2ec;
+  --other: #8297a9;
+  --other-line: #5f7587;
+  --other-soft: #e3ebf1;
+  --sun: #ffd166;
+  --sun-line: #d99a00;
+  --egg: #ffffff;
+  --rawegg: #e6f1f3;
+  --oat: #e8d6ad;
+  --focus: #2a78d6;
+  /* Ekte farger fra forsøkene. Like i begge temaer. */
+  --iod: #c98a36;
+  --iod-pos: #20244f;
+  --feh: #3b82d6;
+  --feh-pos: #b9471f;
+  --pad-neg: #9fd6cf;
+  --pad-pos: #6e5b2b;
+  --f-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  --bg: #0d1315;
+  --surface: #162024;
+  --panel: #121b1e;
+  --grid: #1a2528;
+  --ink: #e4ecea;
+  --ink-2: #a7b6b8;
+  --ink-3: #7f8f93;
+  --line: #2a373b;
+  --org-soft: #1f2a2d;
+  --carb: #2fa868;
+  --carb-line: #4cc283;
+  --carb-soft: #153328;
+  --fat: #c98500;
+  --fat-line: #e3a72c;
+  --fat-soft: #392b0d;
+  --prot: #c2457a;
+  --prot-line: #e5799f;
+  --prot-soft: #3c1a2a;
+  --other: #6f8597;
+  --other-line: #97adbf;
+  --other-soft: #1d2a34;
+  --sun: #e9b949;
+  --sun-line: #f2c95c;
+  --egg: #eef1ee;
+  --rawegg: #1d2b30;
+  --oat: #6d5c3a;
+  --focus: #6aa8f0;
+  color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1315;
+  --surface: #162024;
+  --panel: #121b1e;
+  --grid: #1a2528;
+  --ink: #e4ecea;
+  --ink-2: #a7b6b8;
+  --ink-3: #7f8f93;
+  --line: #2a373b;
+  --org-soft: #1f2a2d;
+  --carb: #2fa868;
+  --carb-line: #4cc283;
+  --carb-soft: #153328;
+  --fat: #c98500;
+  --fat-line: #e3a72c;
+  --fat-soft: #392b0d;
+  --prot: #c2457a;
+  --prot-line: #e5799f;
+  --prot-soft: #3c1a2a;
+  --other: #6f8597;
+  --other-line: #97adbf;
+  --other-soft: #1d2a34;
+  --sun: #e9b949;
+  --sun-line: #f2c95c;
+  --egg: #eef1ee;
+  --rawegg: #1d2b30;
+  --oat: #6d5c3a;
+  --focus: #6aa8f0;
+  color-scheme: dark;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root { scroll-behavior: smooth; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.125rem/1.6 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+p { margin: 0; }
+a { color: inherit; }
+strong { font-weight: 700; }
+sub { font-size: .7em; line-height: 0; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap {
+  width: 100%;
+  max-width: 50rem;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Topp */
+.top .wrap { padding-block: clamp(2.25rem, 7vw, 4.5rem) 1.75rem; display: grid; gap: 1.1rem; }
+.eyebrow { font: 700 .8125rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+h1 { margin: 0; font: 900 clamp(2.6rem, 9vw, 5rem)/.95 var(--f-display); letter-spacing: -.035em; text-wrap: balance; }
+.lead { font-size: 1.1875rem; line-height: 1.55; max-width: 56ch; }
+.legend { list-style: none; margin: .25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .55rem 1.3rem; font-size: .9375rem; color: var(--ink-2); }
+.legend li { display: inline-flex; align-items: center; gap: .5rem; }
+.legend .sig { width: 1.35rem; height: 1.35rem; }
+.tools { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1rem; margin-top: .35rem; }
+.btn {
+  font: 700 1rem/1 var(--f-display);
+  padding: .85rem 1.2rem;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+  cursor: pointer;
+}
+.btn:hover { opacity: .9; }
+.btn[aria-pressed="true"] { background: transparent; color: var(--ink); }
+.hint { color: var(--ink-2); font-size: .9375rem; max-width: 40ch; }
+.note-bold { color: var(--ink-2); font-size: .9375rem; }
+
+/* Navigasjon */
+.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-block: 1px solid var(--line); }
+.toc .wrap { display: flex; gap: .25rem; overflow-x: auto; padding-block: .5rem; scrollbar-width: none; }
+.toc .wrap::-webkit-scrollbar { display: none; }
+.toc a {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .8rem;
+  border-radius: 999px;
+  font: 600 .9375rem/1 var(--f-display);
+  text-decoration: none;
+  color: var(--ink-2);
+}
+.toc a:hover { color: var(--ink); background: var(--surface); }
+.toc a[aria-current="true"] { color: var(--ink); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.toc .sig { width: 1.1rem; height: 1.1rem; }
+
+/* Seksjoner */
+.sec { scroll-margin-top: 4rem; }
+.sec-head { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .3rem 1rem; padding-block: 3.25rem 1.25rem; }
+.sec-head .sig { width: 3.5rem; height: 3.5rem; grid-row: span 2; }
+.sec-head h2 { margin: 0; font: 800 clamp(1.9rem, 5.5vw, 2.8rem)/1 var(--f-display); letter-spacing: -.025em; align-self: end; }
+.sec-head .count { font: 600 .9375rem/1.2 var(--f-display); color: var(--ink-2); align-self: start; }
+.sec-head .intro { grid-column: 1 / -1; max-width: 62ch; margin-top: .65rem; color: var(--ink-2); }
+.qs { display: grid; gap: 1.25rem; }
+.sec-org { --soft: var(--org-soft); --cl: var(--ink-3); }
+.sec-carb { --soft: var(--carb-soft); --cl: var(--carb-line); }
+.sec-fat { --soft: var(--fat-soft); --cl: var(--fat-line); }
+.sec-prot { --soft: var(--prot-soft); --cl: var(--prot-line); }
+
+/* Spørsmålskort */
+.q {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(1.1rem, 3.5vw, 1.9rem);
+  display: grid;
+  gap: 1.1rem;
+  scroll-margin-top: 4rem;
+  min-width: 0;
+}
+.q-head { display: flex; gap: .85rem; align-items: flex-start; }
+.q-num {
+  flex: none;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--soft);
+  box-shadow: inset 0 0 0 2px var(--cl);
+  font: 800 1.05rem/1 var(--f-display);
+}
+.q-title { margin: 0; padding-top: .2rem; font: 700 clamp(1.125rem, 2.6vw, 1.3rem)/1.32 var(--f-display); text-wrap: balance; min-width: 0; }
+.q.reg .q-title { font-weight: 400; }
+.answer { display: grid; gap: 1.1rem; min-width: 0; }
+.short { background: var(--soft); border-radius: 12px; padding: 1rem 1.15rem 1.1rem; }
+.lbl { font: 700 .75rem/1 var(--f-display); letter-spacing: .09em; text-transform: uppercase; color: var(--ink-2); margin-bottom: .6rem; }
+.short p + p { margin-top: .55rem; }
+.more { display: grid; gap: .7rem; max-width: 66ch; }
+.q p, .q li, .q td, .q th { hyphens: auto; overflow-wrap: break-word; }
+.husk { display: flex; gap: .7rem; align-items: baseline; }
+.husk-l {
+  flex: none;
+  font: 700 .72rem/1 var(--f-display);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: .34rem .5rem;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1.5px var(--cl);
+}
+.reveal {
+  display: none;
+  justify-self: start;
+  font: 700 .95rem/1 var(--f-display);
+  padding: .75rem 1.05rem;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.reveal:hover { background: var(--soft); }
+.page.quiz .reveal { display: inline-block; }
+.page.quiz .q:not(.open) .answer { display: none; }
+
+/* Figurer på ruteark */
+.fig {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  min-width: 0;
+  background-color: var(--panel);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.fig-scroll { overflow-x: auto; padding: 1.1rem 1rem; }
+.fig-body { padding: 1.1rem 1rem; display: grid; gap: 1.1rem; min-width: 0; }
+.fig-scroll + .fig-body { padding-top: 0; }
+.fig figcaption { padding: .7rem 1rem .8rem; border-top: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font-size: .9375rem; line-height: 1.5; }
+.fig-scroll > .dia { display: block; width: 100%; max-width: var(--w); min-width: 420px; height: auto; margin-inline: auto; }
+
+/* SVG */
+.dia { color: var(--ink); overflow: visible; }
+.dia text { font-family: var(--f-body); font-size: 16px; fill: var(--ink); }
+.dia .b { font-weight: 700; }
+.dia .s { font-size: 14px; }
+.dia .xs { font-size: 12.5px; }
+.dia .xxs { font-size: 11px; }
+.dia .big { font-size: 21px; }
+.dia .m { fill: var(--ink-2); }
+.dia .mid { text-anchor: middle; }
+.dia .end { text-anchor: end; }
+.dia .ah { fill: var(--ink); }
+.dia .ln { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; }
+.dia .sep { stroke: var(--line); stroke-width: 1; }
+.dia .lead { stroke: var(--ink-3); stroke-width: 1.25; }
+:is(.dia, .ic) .carb { fill: var(--carb-soft); stroke: var(--carb-line); stroke-width: 2; stroke-linejoin: round; }
+:is(.dia, .ic) .fat { fill: var(--fat-soft); stroke: var(--fat-line); stroke-width: 2; stroke-linejoin: round; }
+:is(.dia, .ic) .prot { fill: var(--prot-soft); stroke: var(--prot-line); stroke-width: 2; stroke-linejoin: round; }
+.dia .oth { fill: var(--other-soft); stroke: var(--other-line); stroke-width: 2.5; stroke-linejoin: round; }
+.dia .zoom { fill: var(--surface); stroke: var(--ink-3); stroke-width: 1.5; }
+.dia .focus { fill: none; stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.dia .ground { stroke: var(--ink-3); stroke-width: 2; }
+.dia .stem { fill: none; stroke: var(--carb-line); stroke-width: 3; stroke-linecap: round; }
+.dia .root { fill: none; stroke: var(--ink-3); stroke-width: 1.5; stroke-linecap: round; }
+.dia .cellwall { fill: var(--panel); stroke: var(--carb-line); stroke-width: 2.5; }
+.dia .chloro, .dia .grana { fill: var(--carb); }
+.dia .nucleus { fill: var(--other-soft); stroke: var(--other-line); stroke-width: 1.5; }
+.dia .sun { fill: var(--sun); }
+.dia .ray { stroke: var(--sun-line); stroke-width: 2.5; stroke-linecap: round; }
+.dia .bond { stroke: var(--carb-line); stroke-width: 2.5; }
+.dia .unit { fill: var(--carb); stroke: var(--surface); stroke-width: 1.5; }
+.dia .link { stroke: var(--carb-line); stroke-width: 2; }
+.dia .hb { stroke: var(--ink-3); stroke-width: 1.25; stroke-dasharray: 2 3; }
+.dia .wall { fill: var(--other-soft); stroke: var(--other-line); stroke-width: 1.5; }
+.dia .vessel { fill: var(--other-soft); stroke: var(--other-line); stroke-width: 2; }
+.dia .numb { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; }
+.dia .glass { fill: none; stroke: var(--ink-2); stroke-width: 2; stroke-linecap: round; }
+.dia .shine { stroke: #ffffff; stroke-opacity: .45; stroke-width: 2.5; stroke-linecap: round; }
+.dia .liq-iod { fill: var(--iod); }
+.dia .liq-iodpos { fill: var(--iod-pos); }
+.dia .liq-feh { fill: var(--feh); }
+.dia .liq-fehpos { fill: var(--feh-pos); }
+.dia .stripbody { fill: var(--egg); stroke: var(--ink-3); stroke-width: 1.5; }
+.dia .pad-neg { fill: var(--pad-neg); }
+.dia .pad-pos { fill: var(--pad-pos); }
+.dia .fa { fill: none; stroke: var(--fat-line); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.dia .fa.thin { stroke-width: 2.25; }
+.dia .stick { fill: none; stroke: var(--fat-line); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.dia .bond-ink { stroke: var(--ink); stroke-width: 2; }
+.dia .bondm { stroke: var(--ink-3); stroke-width: 2; stroke-dasharray: 3 3; }
+.dia .vwall { fill: var(--other-soft); stroke: var(--other-line); stroke-width: 2; }
+.dia .lumen { fill: var(--surface); stroke: var(--other-line); stroke-width: 1.5; }
+.dia .pbond { fill: none; stroke: var(--prot-line); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.dia .shape { fill: none; stroke: var(--ink-3); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.dia .coil { fill: none; stroke: var(--prot-line); stroke-width: 5; stroke-linecap: round; }
+.dia .cut { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 4 3; }
+.dia .eggraw { fill: var(--rawegg); stroke: var(--ink-3); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.dia .eggcooked { fill: var(--egg); stroke: var(--ink-3); stroke-width: 1.5; }
+.dia .yolk { fill: var(--fat); stroke: var(--fat-line); stroke-width: 2; }
+.dia .atom { fill: var(--ink); }
+.dia .atom-t { fill: var(--bg); font: 800 22px var(--f-display); text-anchor: middle; }
+.dia .notep { fill: var(--surface); stroke: var(--ink-2); stroke-width: 2; }
+.dia .bag { fill: var(--surface); stroke: var(--ink-2); stroke-width: 2; stroke-linejoin: round; }
+.dia .bagtop { fill: var(--surface); stroke: var(--ink-2); stroke-width: 2; stroke-linejoin: round; }
+.dia .bagwin { fill: var(--panel); stroke: var(--ink-3); stroke-width: 1.5; }
+.dia .bagtext { font: 800 13px var(--f-display); letter-spacing: .04em; text-anchor: middle; fill: var(--ink); }
+.dia .oat { fill: var(--oat); stroke: var(--ink-3); stroke-width: 1; }
+
+/* Små ikoner */
+.ic { width: 2.5rem; height: 2.5rem; flex: none; display: block; overflow: visible; }
+.ic .icl { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic .ici { fill: var(--ink); }
+.ic .icin { fill: var(--surface); stroke: var(--ink-3); stroke-width: 1.5; }
+.ic .icorgan { fill: var(--surface); stroke: var(--ink-2); stroke-width: 1.5; }
+.ic .carb-solid { fill: var(--carb); }
+.ic .fat-solid { fill: var(--fat); }
+.ic .prot-solid { fill: var(--prot); }
+.ic .carb-tube, .ic .fat-tube, .ic .prot-tube { fill: none; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
+.ic .carb-tube { stroke: var(--carb-line); }
+.ic .fat-tube { stroke: var(--fat-line); }
+.ic .prot-tube { stroke: var(--prot-line); }
+.ic .thin { stroke-width: 3; }
+
+/* Oppgave-fliser */
+.roles { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
+@media (min-width: 600px) {
+  .roles.n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .roles.n6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 820px) {
+  .roles.n6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.roles li { display: flex; gap: .75rem; align-items: flex-start; padding: .85rem .9rem; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); min-width: 0; }
+.roles .r-h { font: 700 1rem/1.25 var(--f-display); margin-bottom: .2rem; }
+.roles p { font-size: .9375rem; line-height: 1.45; }
+
+/* Næringsdeklarasjon (O1) */
+.pd { display: grid; grid-template-columns: 8.5rem auto minmax(0, 1fr); gap: 1rem; align-items: center; }
+.pd-col { display: grid; gap: .5rem; justify-items: start; min-width: 0; }
+.pd-col:last-child { justify-items: stretch; }
+.pd-tag { font: 700 .75rem/1 var(--f-display); letter-spacing: .09em; text-transform: uppercase; color: var(--ink-2); }
+.pd-note { font-size: .875rem; color: var(--ink-2); }
+.pd-arrow { font: 700 .875rem/1 var(--f-display); color: var(--ink-2); white-space: nowrap; }
+.dia.pack { width: 7.5rem; height: auto; display: block; }
+@media (max-width: 560px) {
+  .pd { grid-template-columns: 1fr; }
+  .pd-arrow { justify-self: start; }
+}
+.nl { background: var(--surface); border: 2px solid var(--ink); border-radius: 6px; overflow: hidden; font-variant-numeric: tabular-nums; }
+.nl-h { font: 800 1rem/1.2 var(--f-display); padding: .55rem .75rem; border-bottom: 2px solid var(--ink); }
+.nl table { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+.nl th, .nl td { padding: .3rem .75rem; border-top: 1px solid var(--line); text-align: left; font-weight: 400; }
+.nl tr:first-child > * { border-top: 0; }
+.nl td { text-align: right; white-space: nowrap; }
+.nl tr.sub th { padding-left: 1.75rem; color: var(--ink-2); font-size: .875rem; }
+.nl tr.sub td { color: var(--ink-2); font-size: .875rem; }
+.sw { display: inline-block; width: .65rem; height: .65rem; border-radius: 2px; margin-right: .45rem; vertical-align: 0; }
+.sw-carb { background: var(--carb); }
+.sw-fat { background: var(--fat); }
+.sw-prot { background: var(--prot); }
+.sw-other { background: var(--other); }
+
+/* Grupper (O2) */
+.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .75rem; }
+.grp { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1rem; }
+.grp-h { font: 700 1rem/1.2 var(--f-display); margin-bottom: .6rem; }
+.grp ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.grp li { display: flex; align-items: center; gap: .6rem; }
+.grp .sig { width: 1.3rem; height: 1.3rem; }
+
+/* Søylediagram */
+.chart { display: grid; gap: .5rem; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1rem 1rem; min-width: 0; }
+.ch-title { font: 700 1rem/1.3 var(--f-display); }
+.ch-sub { font-size: .875rem; color: var(--ink-2); }
+.bars { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+.bars th { text-align: left; font-weight: 400; white-space: nowrap; padding: .3rem .8rem .3rem 0; width: 1%; }
+.bars .bar-cell { position: relative; padding: .3rem 0; border-left: 1px solid var(--ink-3); }
+.bars .val { text-align: right; white-space: nowrap; padding: .3rem 0 .3rem .8rem; width: 1%; font-variant-numeric: tabular-nums; }
+.bars .val span { color: var(--ink-2); }
+.bars .bar { display: block; height: 18px; border-radius: 0 4px 4px 0; }
+.b-fat { background: var(--fat); }
+.b-carb { background: var(--carb); }
+.b-prot { background: var(--prot); }
+.bars .none { display: block; padding-left: .5rem; font-size: .875rem; color: var(--ink-2); line-height: 18px; }
+.bars tr[data-v]:hover .bar, .bars tr[data-v]:focus-visible .bar,
+.bars tr[data-v]:hover .fill, .bars tr[data-v]:focus-visible .fill { filter: brightness(1.12) saturate(1.1); }
+.bars tr[data-v]:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.sat .track { display: block; position: relative; height: 16px; background: var(--fat-soft); border-radius: 0 4px 4px 0; }
+.sat .fill { position: absolute; inset: 0 auto 0 0; background: var(--fat); border-radius: 0 4px 4px 0; box-shadow: 2px 0 0 var(--surface); }
+.sat .half { position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1px solid var(--ink-2); pointer-events: none; }
+.sat thead td { position: relative; height: 1.4rem; padding: 0; }
+.sat thead .bar-cell { border-left: 0; }
+.half-lbl { position: absolute; left: 50%; bottom: .15rem; transform: translateX(-50%); font-size: .8125rem; color: var(--ink-2); white-space: nowrap; }
+.legend-row { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem 1.1rem; font-size: .875rem; color: var(--ink-2); }
+.key { display: inline-block; width: .9rem; height: .9rem; border-radius: 3px; margin-right: .4rem; vertical-align: -2px; }
+.k-sat { background: var(--fat); }
+.k-unsat { background: var(--fat-soft); box-shadow: inset 0 0 0 1px var(--fat-line); }
+.tip {
+  position: fixed;
+  z-index: 30;
+  pointer-events: none;
+  display: grid;
+  gap: .1rem;
+  max-width: 16rem;
+  padding: .5rem .65rem;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: .875rem;
+  line-height: 1.35;
+  box-shadow: 0 6px 18px rgb(0 0 0 / .2);
+}
+.tip strong { font-size: 1rem; }
+.tip span { opacity: .82; }
+
+/* Likning (K3) */
+.eq { display: grid; gap: .35rem; padding: .85rem 1rem; border-radius: 12px; background: var(--surface); border: 1.5px dashed var(--carb-line); }
+.eq .sym { color: var(--ink-2); }
+
+/* Brikker */
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.chips li { padding: .32rem .7rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: .9375rem; }
+.chips.carb li { background: var(--carb-soft); border-color: var(--carb-line); }
+.chips.prot li { background: var(--prot-soft); border-color: var(--prot-line); }
+.foodgroups { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .9rem; }
+.fg-h { font: 700 .9375rem/1.2 var(--f-display); margin-bottom: .5rem; }
+
+/* Sammenligning (K8) */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.cmp { width: 100%; min-width: 34rem; border-collapse: collapse; font-size: .9375rem; }
+.cmp th, .cmp td { text-align: left; vertical-align: top; padding: .6rem .75rem; border-bottom: 1px solid var(--line); }
+.cmp tr:last-child > * { border-bottom: 0; }
+.cmp thead th { font: 700 1rem/1.2 var(--f-display); border-bottom: 2px solid var(--carb-line); }
+.cmp tbody th { font-weight: 700; color: var(--ink-2); white-space: nowrap; }
+
+/* Aminosyrer (P3, P4) */
+.aa-legend { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; font-size: .875rem; color: var(--ink-2); }
+.aa-legend span { display: inline-flex; align-items: center; gap: .45rem; }
+.aa-legend i { display: inline-block; width: 1rem; height: 1rem; border-radius: 4px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.aa-legend i.e { background: var(--prot-soft); box-shadow: inset 0 0 0 2px var(--prot-line); }
+.aa { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: .4rem; }
+.aa li { padding: .42rem .65rem; border-radius: 8px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); font-size: .9375rem; }
+.aa li.ess { background: var(--prot-soft); box-shadow: inset 0 0 0 2px var(--prot-line); font-weight: 700; }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .75rem; }
+.split > div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1rem; display: grid; gap: .45rem; align-content: start; }
+.split .n { font: 800 2.4rem/1 var(--f-display); }
+.split .n-t { font: 700 1rem/1.25 var(--f-display); }
+.split .n-s { font-size: .9375rem; color: var(--ink-2); }
+
+/* Ord (P5) */
+.words { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; }
+.word { display: flex; gap: .3rem; }
+.word span { width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border-radius: 8px; background: var(--prot-soft); box-shadow: inset 0 0 0 2px var(--prot-line); font: 800 1.25rem/1 var(--f-display); }
+.word-m { font-size: .9375rem; color: var(--ink-2); }
+
+/* Huskelapp */
+.sum-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; }
+.sum { width: 100%; min-width: 40rem; border-collapse: collapse; font-size: .9375rem; }
+.sum th, .sum td { text-align: left; vertical-align: top; padding: .75rem .9rem; border-bottom: 1px solid var(--line); }
+.sum tr:last-child > * { border-bottom: 0; }
+.sum thead th { font: 700 1.05rem/1.2 var(--f-display); white-space: nowrap; }
+.sum thead .sig { width: 1.3rem; height: 1.3rem; display: inline-block; vertical-align: -4px; margin-right: .45rem; }
+.sum tbody th { color: var(--ink-2); font-weight: 700; width: 9rem; }
+
+/* Bunn */
+.foot .wrap { padding-block: 3rem 4rem; color: var(--ink-2); font-size: .9375rem; display: grid; gap: .5rem; }
+</style>
+</head>
+<body>
+<div class="page" lang="nb">
+<header class="top"><div class="wrap">
+<p class="eyebrow">Repetisjon til prøve</p>
+<h1>Næringsstoffene forklart</h1>
+<p class="lead">Alle de 24 spørsmålene fra arket, forklart med enkle ord og tegninger. Les det korte svaret først. Se på tegningen når du vil forstå mer.</p>
+<ul class="legend" aria-label="Fargene på siden">
+<li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><polygon points="52,28 40,48.8 16,48.8 4,28 16,7.2 40,7.2" class="carb"/></svg>Karbohydrater</li>
+<li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="5" y="7" width="13" height="42" rx="3" class="fat"/><polyline points="18,15 26.7,10 35.3,15 44,10 52.6,15" class="fa"/><polyline points="18,28 26.7,23 35.3,28 44,23 52.6,28" class="fa"/><polyline points="18,41 26.7,36 35.3,41 44,36 52.6,41" class="fa"/></svg>Fett</li>
+<li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M11 37 L28 20 L45 37" class="pbond"/><circle cx="11" cy="37" r="9" class="prot"/><circle cx="28" cy="20" r="9" class="prot"/><circle cx="45" cy="37" r="9" class="prot"/></svg>Proteiner</li>
+<li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M28 6 C38 19 44 27 44 34 A16 16 0 0 1 12 34 C12 27 18 19 28 6 Z" class="oth"/></svg>Vitaminer, mineraler og vann</li>
+</ul>
+<div class="tools">
+<button class="btn" id="quiz-toggle" type="button" aria-pressed="false">Test deg selv</button>
+<p class="hint" id="quiz-hint" aria-live="polite">Skjul svarene og prøv å svare selv først.</p>
+</div>
+<p class="note-bold">Spørsmålene står med fet eller vanlig skrift, akkurat som på arket.</p>
+</div></header>
+<nav class="toc" aria-label="Innhold"><div class="wrap">
+<a href="#organiske"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><circle cx="28" cy="28" r="22" class="atom"/><text x="28" y="35.5" class="atom-t">C</text></svg>Organiske stoffer</a>
+<a href="#karbohydrater"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><polygon points="52,28 40,48.8 16,48.8 4,28 16,7.2 40,7.2" class="carb"/></svg>Karbohydrater</a>
+<a href="#fett"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="5" y="7" width="13" height="42" rx="3" class="fat"/><polyline points="18,15 26.7,10 35.3,15 44,10 52.6,15" class="fa"/><polyline points="18,28 26.7,23 35.3,28 44,23 52.6,28" class="fa"/><polyline points="18,41 26.7,36 35.3,41 44,36 52.6,41" class="fa"/></svg>Fett</a>
+<a href="#proteiner"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M11 37 L28 20 L45 37" class="pbond"/><circle cx="11" cy="37" r="9" class="prot"/><circle cx="28" cy="20" r="9" class="prot"/><circle cx="45" cy="37" r="9" class="prot"/></svg>Proteiner</a>
+<a href="#huskelapp"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="9" y="6" width="38" height="44" rx="4" class="notep"/><path d="M17 19 H39 M17 28 H39 M17 37 H31" class="ln"/></svg>Huskelapp</a>
+</div></nav>
+<main>
+<section class="sec sec-org" id="organiske" aria-labelledby="organiske-h">
+<div class="wrap">
+<header class="sec-head"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><circle cx="28" cy="28" r="22" class="atom"/><text x="28" y="35.5" class="atom-t">C</text></svg><h2 id="organiske-h">Organiske stoffer</h2><p class="count">2 spørsmål</p><p class="intro">Organiske stoffer inneholder grunnstoffet karbon (C) og lages av levende ting, som planter og dyr. Karbohydrater, fett, proteiner og vitaminer er organiske stoffer. Vann og mineraler er ikke organiske.</p></header>
+<div class="qs">
+<article class="q reg" id="o1" aria-labelledby="o1-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">1</span><h3 class="q-title" id="o1-t"><span class="sr">Spørsmål 1: </span>Hva er et næringsstoff og hva er et næringsmiddel?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="o1-a">Vis svar</button>
+<div class="answer" id="o1-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Et <strong>næringsmiddel</strong> er maten og drikken vi får i oss, for eksempel havregryn, melk og epler.</p><p>Et <strong>næringsstoff</strong> er det som er inni maten, og som kroppen trenger: karbohydrater, fett, proteiner, vitaminer, mineraler og vann.</p></div>
+<figure class="fig"><div class="fig-body"><div class="pd">
+<div class="pd-col"><p class="pd-tag">Næringsmiddel</p><svg class="dia pack" viewBox="0 0 120 150" aria-hidden="true" focusable="false">
+<path d="M14,24 L106,24 L106,140 Q106,146 100,146 L20,146 Q14,146 14,140 Z" class="bag"/>
+<polyline points="14,24 21.7,12 29.3,24 37,12 44.7,24 52.3,12 60,24 67.7,12 75.3,24 83,12 90.7,24 98.3,12 106,24" class="bagtop"/>
+<rect x="22" y="48" width="76" height="34" rx="5" class="bagwin"/>
+<text x="60" y="70" class="bagtext">HAVREGRYN</text>
+<ellipse cx="38" cy="108" rx="9" ry="5" class="oat" transform="rotate(-20 38 108)"/><ellipse cx="60" cy="116" rx="9" ry="5" class="oat" transform="rotate(15 60 116)"/><ellipse cx="82" cy="106" rx="9" ry="5" class="oat" transform="rotate(-8 82 106)"/><ellipse cx="48" cy="128" rx="9" ry="5" class="oat" transform="rotate(25 48 128)"/><ellipse cx="72" cy="130" rx="9" ry="5" class="oat" transform="rotate(-18 72 130)"/><ellipse cx="88" cy="124" rx="9" ry="5" class="oat" transform="rotate(30 88 124)"/><ellipse cx="30" cy="124" rx="9" ry="5" class="oat" transform="rotate(10 30 124)"/>
+</svg><p class="pd-note">det du spiser</p></div>
+<p class="pd-arrow" aria-hidden="true">inneholder →</p>
+<div class="pd-col"><p class="pd-tag">Næringsstoffer</p>
+<div class="nl"><p class="nl-h">Næringsinnhold per 100 g</p>
+<table aria-label="Næringsinnhold i havregryn per 100 gram"><tbody>
+<tr><th scope="row">Energi</th><td>1560 kJ / 370 kcal</td></tr>
+<tr><th scope="row"><i class="sw sw-fat"></i>Fett</th><td>7 g</td></tr>
+<tr class="sub"><th scope="row">hvorav mettede fettsyrer</th><td>1,3 g</td></tr>
+<tr><th scope="row"><i class="sw sw-carb"></i>Karbohydrat</th><td>59 g</td></tr>
+<tr class="sub"><th scope="row">hvorav sukkerarter</th><td>1 g</td></tr>
+<tr><th scope="row"><i class="sw sw-carb"></i>Kostfiber</th><td>10 g</td></tr>
+<tr><th scope="row"><i class="sw sw-prot"></i>Protein</th><td>13 g</td></tr>
+<tr><th scope="row"><i class="sw sw-other"></i>Salt</th><td>0 g</td></tr>
+</tbody></table></div>
+<p class="pd-note">det som er inni maten</p></div>
+</div></div><figcaption>Havregryn er et næringsmiddel. Tabellen på pakken viser næringsstoffene i det. Tallene er omtrentlige.</figcaption></figure><div class="more"><p>Se på en matvare fra butikken. Navnet på forsiden er næringsmiddelet. Tabellen på baksiden viser næringsstoffene. Vann, vitaminer og mineraler står ofte ikke i tabellen, men de er også næringsstoffer. Salt inneholder mineralet natrium.</p></div><p class="husk"><b class="husk-l">Husk</b><span>Næringsmiddel = maten. Næringsstoff = det som er inni maten.</span></p>
+</div>
+</article>
+<article class="q" id="o2" aria-labelledby="o2-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">2</span><h3 class="q-title" id="o2-t"><span class="sr">Spørsmål 2: </span>Hvilke næringsstoffer finnes i maten vår? Hvilke av disse næringsstoffene gir oss energi, og hvilke gir oss ikke energi?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="o2-a">Vis svar</button>
+<div class="answer" id="o2-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Maten inneholder seks typer næringsstoffer: karbohydrater, fett, proteiner, vitaminer, mineraler og vann.</p><p><strong>Karbohydrater, fett og proteiner gir energi.</strong> <strong>Vitaminer, mineraler og vann gir ikke energi</strong>, men kroppen trenger dem likevel.</p></div>
+<figure class="fig"><div class="fig-body"><div class="groups">
+<div class="grp"><p class="grp-h">Gir energi</p><ul>
+<li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><polygon points="52,28 40,48.8 16,48.8 4,28 16,7.2 40,7.2" class="carb"/></svg>Karbohydrater</li><li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="5" y="7" width="13" height="42" rx="3" class="fat"/><polyline points="18,15 26.7,10 35.3,15 44,10 52.6,15" class="fa"/><polyline points="18,28 26.7,23 35.3,28 44,23 52.6,28" class="fa"/><polyline points="18,41 26.7,36 35.3,41 44,36 52.6,41" class="fa"/></svg>Fett</li><li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M11 37 L28 20 L45 37" class="pbond"/><circle cx="11" cy="37" r="9" class="prot"/><circle cx="28" cy="20" r="9" class="prot"/><circle cx="45" cy="37" r="9" class="prot"/></svg>Proteiner</li></ul></div>
+<div class="grp"><p class="grp-h">Gir ikke energi</p><ul>
+<li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M28 6 C38 19 44 27 44 34 A16 16 0 0 1 12 34 C12 27 18 19 28 6 Z" class="oth"/></svg>Vitaminer</li><li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M28 6 C38 19 44 27 44 34 A16 16 0 0 1 12 34 C12 27 18 19 28 6 Z" class="oth"/></svg>Mineraler</li><li><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M28 6 C38 19 44 27 44 34 A16 16 0 0 1 12 34 C12 27 18 19 28 6 Z" class="oth"/></svg>Vann</li></ul></div>
+</div>
+<div class="chart">
+<p class="ch-title" id="energi-t">Energi i 1 gram</p>
+<table class="bars" aria-labelledby="energi-t"><tbody>
+<tr tabindex="0" data-v="37 kJ (9 kcal)" data-l="Fett, per gram"><th scope="row">Fett</th><td class="bar-cell"><span class="bar b-fat" style="width:92.5%"></span></td><td class="val">37 kJ <span>· 9 kcal</span></td></tr>
+<tr tabindex="0" data-v="17 kJ (4 kcal)" data-l="Karbohydrater, per gram"><th scope="row">Karbohydrater</th><td class="bar-cell"><span class="bar b-carb" style="width:42.5%"></span></td><td class="val">17 kJ <span>· 4 kcal</span></td></tr>
+<tr tabindex="0" data-v="17 kJ (4 kcal)" data-l="Proteiner, per gram"><th scope="row">Proteiner</th><td class="bar-cell"><span class="bar b-prot" style="width:42.5%"></span></td><td class="val">17 kJ <span>· 4 kcal</span></td></tr>
+<tr><th scope="row">Vitaminer</th><td class="bar-cell"><span class="none">gir ikke energi</span></td><td class="val">0 kJ</td></tr>
+<tr><th scope="row">Mineraler</th><td class="bar-cell"><span class="none">gir ikke energi</span></td><td class="val">0 kJ</td></tr>
+<tr><th scope="row">Vann</th><td class="bar-cell"><span class="none">gir ikke energi</span></td><td class="val">0 kJ</td></tr>
+</tbody></table>
+</div></div><figcaption>Fett gir 37 kJ per gram. Karbohydrater og proteiner gir 17 kJ per gram. Vitaminer, mineraler og vann gir ingen energi.</figcaption></figure><div class="more"><p>Fett gir mest energi, over dobbelt så mye per gram som karbohydrater og proteiner. Vitaminer og mineraler hjelper kroppen med mange jobber, for eksempel å bygge skjelett og blod. Vann frakter stoffer rundt i kroppen og hjelper oss å holde riktig temperatur.</p></div><p class="husk"><b class="husk-l">Husk</b><span>Tre gir energi: karbohydrater, fett og proteiner.</span></p>
+</div>
+</article></div>
+</div>
+</section>
+<section class="sec sec-carb" id="karbohydrater" aria-labelledby="karbohydrater-h">
+<div class="wrap">
+<header class="sec-head"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><polygon points="52,28 40,48.8 16,48.8 4,28 16,7.2 40,7.2" class="carb"/></svg><h2 id="karbohydrater-h">Karbohydrater</h2><p class="count">10 spørsmål</p><p class="intro">Karbohydrater er sukkerstoffer. De er bygget av karbon (C), hydrogen (H) og oksygen (O). Navnet betyr omtrent «karbon og vann».</p></header>
+<div class="qs">
+<article class="q" id="k1" aria-labelledby="k1-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">1</span><h3 class="q-title" id="k1-t"><span class="sr">Spørsmål 1: </span>Hvilke oppgaver har karbohydrater i kroppen vår?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k1-a">Vis svar</button>
+<div class="answer" id="k1-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Karbohydrater er kroppens viktigste kilde til <strong>rask energi</strong>. Hjernen og musklene bruker mye glukose.</p><p>Kroppen kan <strong>lagre</strong> litt karbohydrat som glykogen i leveren og musklene. <strong>Kostfiber</strong> er også karbohydrater. De hjelper magen og tarmen å fungere, og gjør at vi holder oss mette lenger.</p></div>
+<ul class="roles n3"><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M23 3 L9 23 H19 L16 37 L31 15 H21 Z" class="carb"/></svg><div><p class="r-h">Energi</p><p>Glukose er brensel for cellene. Hjernen bruker rundt 120 gram glukose hver dag.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="12" width="28" height="17" rx="3" class="icl"/><rect x="32" y="17" width="4" height="7" rx="1" class="ici"/><rect x="7.5" y="15.5" width="15" height="10" rx="1.5" class="carb-solid"/></svg><div><p class="r-h">Lager</p><p>Glukose vi ikke trenger med en gang, lagres som glykogen i leveren og musklene.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 38 V9" class="icl"/><ellipse cx="14.5" cy="13" rx="5.5" ry="3" class="carb" transform="rotate(35 14.5 13)"/><ellipse cx="25.5" cy="13" rx="5.5" ry="3" class="carb" transform="rotate(-35 25.5 13)"/><ellipse cx="14.5" cy="20" rx="5.5" ry="3" class="carb" transform="rotate(35 14.5 20)"/><ellipse cx="25.5" cy="20" rx="5.5" ry="3" class="carb" transform="rotate(-35 25.5 20)"/><ellipse cx="14.5" cy="27" rx="5.5" ry="3" class="carb" transform="rotate(35 14.5 27)"/><ellipse cx="25.5" cy="27" rx="5.5" ry="3" class="carb" transform="rotate(-35 25.5 27)"/><ellipse cx="20" cy="7" rx="3" ry="5.5" class="carb"/></svg><div><p class="r-h">Kostfiber</p><p>Fiber tas ikke opp i blodet, men holder tarmen i gang og gjør oss mette.</p></div></li></ul><p class="husk"><b class="husk-l">Husk</b><span>Karbohydrater er kroppens raske drivstoff.</span></p>
+</div>
+</article>
+<article class="q" id="k2" aria-labelledby="k2-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">2</span><h3 class="q-title" id="k2-t"><span class="sr">Spørsmål 2: </span>Hvor blir karbohydratene produsert?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k2-a">Vis svar</button>
+<div class="answer" id="k2-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Karbohydratene lages i <strong>grønne planter</strong>, mest i bladene. Inne i cellene i bladet finnes <strong>grønnkorn</strong> (kloroplaster). Der skjer fotosyntesen, som lager glukose.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 560 242" style="--w:560px" role="img" aria-label="Vi zoomer inn fra en plante til en celle i bladet og videre til et grønnkorn, der glukosen lages."><defs><marker id="ah-k2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><circle cx="95" cy="108" r="78" class="zoom"/><circle cx="280" cy="108" r="78" class="zoom"/><circle cx="465" cy="108" r="78" class="zoom"/><line x1="37" y1="160" x2="153" y2="160" class="ground"/><path d="M95,160 L95,66" class="stem"/><ellipse cx="70" cy="114" rx="24" ry="10" class="carb" transform="rotate(-28 70 114)"/><ellipse cx="120" cy="92" rx="24" ry="10" class="carb" transform="rotate(28 120 92)"/><ellipse cx="95" cy="58" rx="9" ry="17" class="carb"/><path d="M95,160 L84,178 M95,160 L106,179 M95,160 L95,184" class="root"/><circle cx="124" cy="90" r="17" class="focus"/><line x1="178" y1="108" x2="198" y2="108" class="ln" marker-end="url(#ah-k2)"/><rect x="228" y="74" width="104" height="68" rx="10" class="cellwall"/><ellipse cx="250" cy="92" rx="10" ry="6" class="chloro"/><ellipse cx="300" cy="90" rx="10" ry="6" class="chloro"/><ellipse cx="312" cy="124" rx="10" ry="6" class="chloro"/><ellipse cx="272" cy="128" rx="10" ry="6" class="chloro"/><ellipse cx="246" cy="122" rx="10" ry="6" class="chloro"/><circle cx="286" cy="108" r="9" class="nucleus"/><circle cx="300" cy="90" r="16" class="focus"/><line x1="363" y1="108" x2="383" y2="108" class="ln" marker-end="url(#ah-k2)"/><ellipse cx="465" cy="104" rx="62" ry="36" class="carb"/><rect x="422" y="91" width="16" height="4.5" rx="2" class="grana"/><rect x="422" y="98" width="16" height="4.5" rx="2" class="grana"/><rect x="422" y="105" width="16" height="4.5" rx="2" class="grana"/><rect x="422" y="112" width="16" height="4.5" rx="2" class="grana"/><rect x="445" y="91" width="16" height="4.5" rx="2" class="grana"/><rect x="445" y="98" width="16" height="4.5" rx="2" class="grana"/><rect x="445" y="105" width="16" height="4.5" rx="2" class="grana"/><rect x="445" y="112" width="16" height="4.5" rx="2" class="grana"/><rect x="468" y="91" width="16" height="4.5" rx="2" class="grana"/><rect x="468" y="98" width="16" height="4.5" rx="2" class="grana"/><rect x="468" y="105" width="16" height="4.5" rx="2" class="grana"/><rect x="468" y="112" width="16" height="4.5" rx="2" class="grana"/><rect x="491" y="91" width="16" height="4.5" rx="2" class="grana"/><rect x="491" y="98" width="16" height="4.5" rx="2" class="grana"/><rect x="491" y="105" width="16" height="4.5" rx="2" class="grana"/><rect x="491" y="112" width="16" height="4.5" rx="2" class="grana"/><text x="465" y="160" class="s mid">her lages glukose</text><text x="95" y="214" class="b mid">Planten</text><text x="280" y="214" class="b mid">Celle i bladet</text><text x="465" y="214" class="b mid">Grønnkorn</text><text x="465" y="232" class="s m mid">(kloroplast)</text></svg></div><figcaption>Vi zoomer inn: fra planten, til en celle i bladet, til et grønnkorn. Det er i grønnkornene glukosen lages.</figcaption></figure><div class="more"><p>Mennesker og dyr kan ikke lage karbohydrater ved hjelp av sollys. Vi får dem fra maten, og nesten alle kommer fra planter: korn, poteter, frukt og grønnsaker.</p></div>
+</div>
+</article>
+<article class="q reg" id="k3" aria-labelledby="k3-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">3</span><h3 class="q-title" id="k3-t"><span class="sr">Spørsmål 3: </span>Beskriv fotosyntesen med ord.</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k3-a">Vis svar</button>
+<div class="answer" id="k3-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Planten tar opp <strong>vann</strong> gjennom røttene og <strong>karbondioksid</strong> fra lufta gjennom små åpninger i bladene. <strong>Klorofyllet</strong> i grønnkornene fanger energi fra <strong>sollyset</strong>.</p><p>Med denne energien lager planten <strong>glukose</strong> av vannet og karbondioksidet. <strong>Oksygen</strong> blir til overs og slippes ut i lufta.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 600 252" style="--w:600px" role="img" aria-label="Bladet tar inn sollys, karbondioksid og vann, og lager glukose og oksygen."><defs><marker id="ah-k3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><path d="M200,145 C235,62 365,62 400,145 C365,228 235,228 200,145 Z" class="carb"/><text x="300" y="140" class="b mid">Fotosyntese</text><text x="300" y="160" class="s m mid">i grønnkornene</text><circle cx="48" cy="58" r="16" class="sun"/><line x1="69" y1="58" x2="76" y2="58" class="ray"/><line x1="62.8" y1="72.8" x2="67.8" y2="77.8" class="ray"/><line x1="48" y1="79" x2="48" y2="86" class="ray"/><line x1="33.2" y1="72.8" x2="28.2" y2="77.8" class="ray"/><line x1="27" y1="58" x2="20" y2="58" class="ray"/><line x1="33.2" y1="43.2" x2="28.2" y2="38.2" class="ray"/><line x1="48" y1="37" x2="48" y2="30" class="ray"/><line x1="62.8" y1="43.2" x2="67.8" y2="38.2" class="ray"/><text x="86" y="54" class="b">Sollys</text><text x="86" y="72" class="s m">gir energi</text><line x1="160" y1="80" x2="225" y2="103" class="ln" marker-end="url(#ah-k3)"/><text x="20" y="140" class="b">Karbondioksid</text><text x="20" y="158" class="s m">CO₂ fra lufta</text><line x1="142" y1="148" x2="193" y2="146" class="ln" marker-end="url(#ah-k3)"/><text x="20" y="222" class="b">Vann</text><text x="20" y="240" class="s m">H₂O fra røttene</text><line x1="142" y1="228" x2="224" y2="190" class="ln" marker-end="url(#ah-k3)"/><line x1="375" y1="103" x2="448" y2="72" class="ln" marker-end="url(#ah-k3)"/><text x="458" y="64" class="b">Oksygen</text><text x="458" y="82" class="s m">O₂ ut i lufta</text><line x1="375" y1="187" x2="448" y2="218" class="ln" marker-end="url(#ah-k3)"/><text x="458" y="216" class="b">Glukose</text><text x="458" y="234" class="s m">sukker til planten</text><polygon points="559,211 553.5,220.5 542.5,220.5 537,211 542.5,201.5 553.5,201.5" class="carb"/></svg></div><div class="fig-body"><div class="eq">
+<p>karbondioksid + vann + solenergi → glukose + oksygen</p>
+<p class="sym">6 CO<sub>2</sub> + 6 H<sub>2</sub>O + solenergi → C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6 O<sub>2</sub></p>
+</div></div><figcaption>Inn i bladet går sollys, karbondioksid og vann. Ut kommer glukose og oksygen.</figcaption></figure><div class="more"><p>Planten bruker glukosen til energi. Den lager også stivelse av glukosen, som et lager, og cellulose, som er byggemateriale i celleveggene.</p></div><p class="husk"><b class="husk-l">Husk</b><span>Inn: sollys, CO<sub>2</sub> og vann. Ut: glukose og O<sub>2</sub>.</span></p>
+</div>
+</article>
+<article class="q" id="k4" aria-labelledby="k4-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">4</span><h3 class="q-title" id="k4-t"><span class="sr">Spørsmål 4: </span>Hvilke tre grupper deles karbohydratene inn i?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k4-a">Vis svar</button>
+<div class="answer" id="k4-a">
+<div class="short"><p class="lbl">Kort svar</p><p><strong>Monosakkarider</strong> (enkle sukkerarter), <strong>disakkarider</strong> (doble sukkerarter) og <strong>polysakkarider</strong> (lange kjeder med mange sukkerenheter).</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 560 256" style="--w:560px" role="img" aria-label="Monosakkarider har én sukkerenhet, disakkarider har to, og polysakkarider har mange i en lang kjede."><defs><marker id="ah-k4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><text x="20" y="50" class="b">Monosakkarider</text><text x="20" y="69" class="s m">mono = én</text><text x="20" y="126" class="b">Disakkarider</text><text x="20" y="145" class="s m">di = to</text><text x="20" y="202" class="b">Polysakkarider</text><text x="20" y="221" class="s m">poly = mange</text><polygon points="250,52 241,67.6 223,67.6 214,52 223,36.4 241,36.4" class="carb"/><text x="266" y="57" class="s m">f.eks. glukose</text><line x1="250" y1="128" x2="266" y2="128" class="bond"/><polygon points="250,128 241,143.6 223,143.6 214,128 223,112.4 241,112.4" class="carb"/><polygon points="302,128 293,143.6 275,143.6 266,128 275,112.4 293,112.4" class="carb"/><text x="318" y="133" class="s m">f.eks. sukrose</text><line x1="250" y1="204" x2="266" y2="204" class="bond"/><line x1="302" y1="204" x2="318" y2="204" class="bond"/><line x1="354" y1="204" x2="370" y2="204" class="bond"/><line x1="406" y1="204" x2="422" y2="204" class="bond"/><line x1="458" y1="204" x2="474" y2="204" class="bond"/><polygon points="250,204 241,219.6 223,219.6 214,204 223,188.4 241,188.4" class="carb"/><polygon points="302,204 293,219.6 275,219.6 266,204 275,188.4 293,188.4" class="carb"/><polygon points="354,204 345,219.6 327,219.6 318,204 327,188.4 345,188.4" class="carb"/><polygon points="406,204 397,219.6 379,219.6 370,204 379,188.4 397,188.4" class="carb"/><polygon points="458,204 449,219.6 431,219.6 422,204 431,188.4 449,188.4" class="carb"/><polygon points="510,204 501,219.6 483,219.6 474,204 483,188.4 501,188.4" class="carb"/><text x="522" y="209" class="b">…</text><text x="214" y="246" class="s m">f.eks. stivelse, glykogen og cellulose</text></svg></div><figcaption>Hver sekskant er én sukkerenhet.</figcaption></figure><div class="more"><p>Ordene forteller hvor mange sukkerenheter det er: mono betyr én, di betyr to og poly betyr mange. Sakkarid betyr sukker.</p></div>
+</div>
+</article>
+<article class="q" id="k5" aria-labelledby="k5-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">5</span><h3 class="q-title" id="k5-t"><span class="sr">Spørsmål 5: </span>Glukose er et monosakkarid, hva kjennetegner alle monosakkarider?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k5-a">Vis svar</button>
+<div class="answer" id="k5-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Monosakkarider er de <strong>minste sukkermolekylene</strong>. De består av bare <strong>én sukkerenhet</strong> og kan ikke deles i enklere sukker.</p><p>De er så små at de kan <strong>tas opp direkte i blodet</strong> fra tarmen. De smaker søtt og løser seg lett i vann.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 540 166" style="--w:540px" role="img" aria-label="Glukose, fruktose og galaktose er monosakkarider med samme formel, C6H12O6."><defs><marker id="ah-k5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><polygon points="126,66 108,97.2 72,97.2 54,66 72,34.8 108,34.8" class="carb"/><polygon points="270,32 306.1,58.3 292.3,100.7 247.7,100.7 233.9,58.3" class="carb"/><polygon points="486,66 468,97.2 432,97.2 414,66 432,34.8 468,34.8" class="carb"/><text x="90" y="71" class="s mid">C₆H₁₂O₆</text><text x="270" y="77" class="s mid">C₆H₁₂O₆</text><text x="450" y="71" class="s mid">C₆H₁₂O₆</text><text x="90" y="134" class="b mid">Glukose</text><text x="90" y="153" class="s m mid">druesukker</text><text x="270" y="134" class="b mid">Fruktose</text><text x="270" y="153" class="s m mid">fruktsukker</text><text x="450" y="134" class="b mid">Galaktose</text><text x="450" y="153" class="s m mid">en del av melkesukker</text></svg></div><figcaption>Tre monosakkarider med samme formel. Atomene er ordnet litt forskjellig, så fruktose danner en femkant.</figcaption></figure><div class="more"><p>Glukose (druesukker), fruktose (fruktsukker) og galaktose er monosakkarider. Alle tre har formelen C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>.</p></div>
+</div>
+</article>
+<article class="q" id="k6" aria-labelledby="k6-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">6</span><h3 class="q-title" id="k6-t"><span class="sr">Spørsmål 6: </span>Gi et eksempel på et disakkarid. Hvordan er disakkarider bygget opp?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k6-a">Vis svar</button>
+<div class="answer" id="k6-a">
+<div class="short"><p class="lbl">Kort svar</p><p><strong>Sukrose</strong> (vanlig sukker) er et disakkarid. Et disakkarid består av <strong>to monosakkarider som er bundet sammen</strong>. Sukrose er glukose + fruktose.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 470 214" style="--w:470px" role="img" aria-label="Sukrose er glukose og fruktose, laktose er glukose og galaktose, og maltose er to glukose."><defs><marker id="ah-k6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><text x="176" y="28" class="s m mid">bindes sammen</text><polygon points="61,46 50.5,64.2 29.5,64.2 19,46 29.5,27.8 50.5,27.8" class="carb"/><text x="40" y="50.5" class="xs b mid">Glu</text><text x="78" y="53" class="big b mid">+</text><polygon points="116,26 136.9,41.2 128.9,65.8 103.1,65.8 95.1,41.2" class="carb"/><text x="116" y="52.5" class="xs b mid">Fru</text><line x1="150" y1="46" x2="202" y2="46" class="ln" marker-end="url(#ah-k6)"/><line x1="261" y1="46" x2="275" y2="41.5" class="bond"/><polygon points="261,46 250.5,64.2 229.5,64.2 219,46 229.5,27.8 250.5,27.8" class="carb"/><text x="240" y="50.5" class="xs b mid">Glu</text><polygon points="296,26 316.9,41.2 308.9,65.8 283.1,65.8 275.1,41.2" class="carb"/><text x="296" y="52.5" class="xs b mid">Fru</text><text x="336" y="44" class="b">Sukrose</text><text x="336" y="63" class="s m">vanlig sukker</text><polygon points="61,116 50.5,134.2 29.5,134.2 19,116 29.5,97.8 50.5,97.8" class="carb"/><text x="40" y="120.5" class="xs b mid">Glu</text><text x="78" y="123" class="big b mid">+</text><polygon points="137,116 126.5,134.2 105.5,134.2 95,116 105.5,97.8 126.5,97.8" class="carb"/><text x="116" y="120.5" class="xs b mid">Gal</text><line x1="150" y1="116" x2="202" y2="116" class="ln" marker-end="url(#ah-k6)"/><line x1="261" y1="116" x2="275" y2="116" class="bond"/><polygon points="261,116 250.5,134.2 229.5,134.2 219,116 229.5,97.8 250.5,97.8" class="carb"/><text x="240" y="120.5" class="xs b mid">Glu</text><polygon points="317,116 306.5,134.2 285.5,134.2 275,116 285.5,97.8 306.5,97.8" class="carb"/><text x="296" y="120.5" class="xs b mid">Gal</text><text x="336" y="114" class="b">Laktose</text><text x="336" y="133" class="s m">melkesukker</text><polygon points="61,186 50.5,204.2 29.5,204.2 19,186 29.5,167.8 50.5,167.8" class="carb"/><text x="40" y="190.5" class="xs b mid">Glu</text><text x="78" y="193" class="big b mid">+</text><polygon points="137,186 126.5,204.2 105.5,204.2 95,186 105.5,167.8 126.5,167.8" class="carb"/><text x="116" y="190.5" class="xs b mid">Glu</text><line x1="150" y1="186" x2="202" y2="186" class="ln" marker-end="url(#ah-k6)"/><line x1="261" y1="186" x2="275" y2="186" class="bond"/><polygon points="261,186 250.5,204.2 229.5,204.2 219,186 229.5,167.8 250.5,167.8" class="carb"/><text x="240" y="190.5" class="xs b mid">Glu</text><polygon points="317,186 306.5,204.2 285.5,204.2 275,186 285.5,167.8 306.5,167.8" class="carb"/><text x="296" y="190.5" class="xs b mid">Glu</text><text x="336" y="184" class="b">Maltose</text><text x="336" y="203" class="s m">maltsukker</text></svg></div><figcaption>Tre vanlige disakkarider. Glu = glukose, Fru = fruktose, Gal = galaktose.</figcaption></figure><div class="more"><p>Andre disakkarider er laktose (melkesukker) og maltose (maltsukker). Når to monosakkarider bindes sammen, blir det frigjort ett vannmolekyl.</p></div>
+</div>
+</article>
+<article class="q reg" id="k7" aria-labelledby="k7-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">7</span><h3 class="q-title" id="k7-t"><span class="sr">Spørsmål 7: </span>Hvor finner vi disakkaridet laktose?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k7-a">Vis svar</button>
+<div class="answer" id="k7-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Laktose kalles <strong>melkesukker</strong>. Vi finner det i <strong>melk og melkeprodukter</strong>, som yoghurt, fløte, rømme, is og brunost. Morsmelk har også laktose.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 440 118" style="--w:440px" role="img" aria-label="Enzymet laktase deler laktose i glukose og galaktose."><defs><marker id="ah-k7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><line x1="72" y1="56" x2="90" y2="56" class="bond"/><polygon points="72,56 61,75.1 39,75.1 28,56 39,36.9 61,36.9" class="carb"/><text x="50" y="60.5" class="xs b mid">Glu</text><polygon points="134,56 123,75.1 101,75.1 90,56 101,36.9 123,36.9" class="carb"/><text x="112" y="60.5" class="xs b mid">Gal</text><text x="81" y="106" class="b mid">Laktose</text><line x1="156" y1="56" x2="262" y2="56" class="ln" marker-end="url(#ah-k7)"/><text x="209" y="42" class="s mid">enzymet laktase</text><text x="209" y="78" class="s m mid">deler laktosen</text><polygon points="328,56 317,75.1 295,75.1 284,56 295,36.9 317,36.9" class="carb"/><text x="306" y="60.5" class="xs b mid">Glu</text><polygon points="406,56 395,75.1 373,75.1 362,56 373,36.9 395,36.9" class="carb"/><text x="384" y="60.5" class="xs b mid">Gal</text><text x="306" y="106" class="b mid">Glukose</text><text x="384" y="106" class="b mid">Galaktose</text></svg></div><div class="fig-body"><div class="foodgroups">
+<div><p class="fg-h">Har laktose</p><ul class="chips carb"><li>Melk</li><li>Yoghurt</li><li>Fløte</li><li>Rømme</li><li>Is</li><li>Brunost</li><li>Morsmelk</li></ul></div>
+<div><p class="fg-h">Nesten ingen laktose</p><ul class="chips"><li>Hard gulost</li><li>Laktosefri melk</li></ul></div>
+</div></div><figcaption>Enzymet laktase deler laktose i glukose og galaktose. De er små nok til å tas opp i blodet.</figcaption></figure><div class="more"><p>Hard gulost har nesten ingen laktose. Det meste renner bort med mysa når osten lages, og resten brytes ned mens osten modner. Brunost lages av myse og har mye melkesukker. Den brune fargen kommer av at melkesukkeret karamelliseres når mysa kokes.</p><p>Noen tåler ikke laktose. De har for lite av enzymet laktase, og kan få vondt i magen av melk. Dette kalles laktoseintoleranse.</p></div>
+</div>
+</article>
+<article class="q" id="k8" aria-labelledby="k8-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">8</span><h3 class="q-title" id="k8-t"><span class="sr">Spørsmål 8: </span>Gi tre eksempler på polysakkarider, og beskriv hva som skiller dem fra hverandre.</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k8-a">Vis svar</button>
+<div class="answer" id="k8-a">
+<div class="short"><p class="lbl">Kort svar</p><p><strong>Stivelse</strong>, <strong>glykogen</strong> og <strong>cellulose</strong>. Alle tre er lange kjeder av glukose. De er forskjellige i hvordan kjedene er bygget, hvor vi finner dem og hva de brukes til.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 600 282" style="--w:600px" role="img" aria-label="Stivelse har lange kjeder med noen greiner, glykogen har svært mange greiner, og cellulose har rette kjeder som ligger tett."><defs><marker id="ah-k8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><text x="100" y="24" class="b mid">Stivelse</text><text x="100" y="42" class="s m mid">lager i planter</text><text x="301" y="24" class="b mid">Glykogen</text><text x="301" y="42" class="s m mid">lager hos mennesker og dyr</text><text x="501" y="24" class="b mid">Cellulose</text><text x="501" y="42" class="s m mid">byggestoff i planter</text><line x1="200" y1="14" x2="200" y2="278" class="sep"/><line x1="402" y1="14" x2="402" y2="278" class="sep"/><line x1="24" y1="94" x2="38" y2="100.2" class="link"/><line x1="38" y1="100.2" x2="52" y2="99.7" class="link"/><line x1="52" y1="99.7" x2="66" y2="92.9" class="link"/><line x1="66" y1="92.9" x2="80" y2="87.3" class="link"/><line x1="80" y1="87.3" x2="94" y2="89.1" class="link"/><line x1="94" y1="89.1" x2="108" y2="96.2" class="link"/><line x1="108" y1="96.2" x2="122" y2="100.9" class="link"/><line x1="122" y1="100.9" x2="136" y2="98.1" class="link"/><line x1="136" y1="98.1" x2="150" y2="90.8" class="link"/><line x1="150" y1="90.8" x2="164" y2="87" class="link"/><line x1="164" y1="87" x2="178" y2="90.9" class="link"/><line x1="24" y1="172" x2="38" y2="172" class="link"/><line x1="38" y1="172" x2="52" y2="172" class="link"/><line x1="52" y1="172" x2="66" y2="172" class="link"/><line x1="66" y1="172" x2="80" y2="172" class="link"/><line x1="80" y1="172" x2="94" y2="172" class="link"/><line x1="94" y1="172" x2="108" y2="172" class="link"/><line x1="108" y1="172" x2="122" y2="172" class="link"/><line x1="122" y1="172" x2="136" y2="172" class="link"/><line x1="136" y1="172" x2="150" y2="172" class="link"/><line x1="150" y1="172" x2="164" y2="172" class="link"/><line x1="164" y1="172" x2="178" y2="172" class="link"/><line x1="66" y1="172" x2="76" y2="162" class="link"/><line x1="76" y1="162" x2="86" y2="152" class="link"/><line x1="86" y1="152" x2="96" y2="142" class="link"/><line x1="96" y1="142" x2="106" y2="132" class="link"/><line x1="122" y1="172" x2="132" y2="182" class="link"/><line x1="132" y1="182" x2="142" y2="192" class="link"/><line x1="142" y1="192" x2="152" y2="202" class="link"/><circle cx="24" cy="94" r="5.2" class="unit"/><circle cx="38" cy="100.2" r="5.2" class="unit"/><circle cx="52" cy="99.7" r="5.2" class="unit"/><circle cx="66" cy="92.9" r="5.2" class="unit"/><circle cx="80" cy="87.3" r="5.2" class="unit"/><circle cx="94" cy="89.1" r="5.2" class="unit"/><circle cx="108" cy="96.2" r="5.2" class="unit"/><circle cx="122" cy="100.9" r="5.2" class="unit"/><circle cx="136" cy="98.1" r="5.2" class="unit"/><circle cx="150" cy="90.8" r="5.2" class="unit"/><circle cx="164" cy="87" r="5.2" class="unit"/><circle cx="178" cy="90.9" r="5.2" class="unit"/><circle cx="24" cy="172" r="5.2" class="unit"/><circle cx="38" cy="172" r="5.2" class="unit"/><circle cx="52" cy="172" r="5.2" class="unit"/><circle cx="66" cy="172" r="5.2" class="unit"/><circle cx="80" cy="172" r="5.2" class="unit"/><circle cx="94" cy="172" r="5.2" class="unit"/><circle cx="108" cy="172" r="5.2" class="unit"/><circle cx="122" cy="172" r="5.2" class="unit"/><circle cx="136" cy="172" r="5.2" class="unit"/><circle cx="150" cy="172" r="5.2" class="unit"/><circle cx="164" cy="172" r="5.2" class="unit"/><circle cx="178" cy="172" r="5.2" class="unit"/><circle cx="76" cy="162" r="5.2" class="unit"/><circle cx="86" cy="152" r="5.2" class="unit"/><circle cx="96" cy="142" r="5.2" class="unit"/><circle cx="106" cy="132" r="5.2" class="unit"/><circle cx="132" cy="182" r="5.2" class="unit"/><circle cx="142" cy="192" r="5.2" class="unit"/><circle cx="152" cy="202" r="5.2" class="unit"/><line x1="301" y1="150" x2="301" y2="137" class="link"/><line x1="301" y1="137" x2="301" y2="124" class="link"/><line x1="301" y1="124" x2="301" y2="111" class="link"/><line x1="301" y1="111" x2="301" y2="98" class="link"/><line x1="301" y1="124" x2="312.3" y2="117.5" class="link"/><line x1="312.3" y1="117.5" x2="323.5" y2="111" class="link"/><line x1="301" y1="111" x2="289.7" y2="104.5" class="link"/><line x1="289.7" y1="104.5" x2="278.5" y2="98" class="link"/><line x1="301" y1="150" x2="313.4" y2="146" class="link"/><line x1="313.4" y1="146" x2="325.7" y2="142" class="link"/><line x1="325.7" y1="142" x2="338.1" y2="137.9" class="link"/><line x1="338.1" y1="137.9" x2="350.5" y2="133.9" class="link"/><line x1="325.7" y1="142" x2="335.4" y2="150.7" class="link"/><line x1="335.4" y1="150.7" x2="345" y2="159.4" class="link"/><line x1="338.1" y1="137.9" x2="340.8" y2="125.2" class="link"/><line x1="340.8" y1="125.2" x2="343.5" y2="112.5" class="link"/><line x1="301" y1="150" x2="308.6" y2="160.5" class="link"/><line x1="308.6" y1="160.5" x2="316.3" y2="171" class="link"/><line x1="316.3" y1="171" x2="323.9" y2="181.6" class="link"/><line x1="323.9" y1="181.6" x2="331.6" y2="192.1" class="link"/><line x1="316.3" y1="171" x2="311" y2="182.9" class="link"/><line x1="311" y1="182.9" x2="305.7" y2="194.8" class="link"/><line x1="323.9" y1="181.6" x2="336.9" y2="180.2" class="link"/><line x1="336.9" y1="180.2" x2="349.8" y2="178.8" class="link"/><line x1="301" y1="150" x2="293.4" y2="160.5" class="link"/><line x1="293.4" y1="160.5" x2="285.7" y2="171" class="link"/><line x1="285.7" y1="171" x2="278.1" y2="181.6" class="link"/><line x1="278.1" y1="181.6" x2="270.4" y2="192.1" class="link"/><line x1="285.7" y1="171" x2="272.8" y2="169.7" class="link"/><line x1="272.8" y1="169.7" x2="259.9" y2="168.3" class="link"/><line x1="278.1" y1="181.6" x2="283.4" y2="193.4" class="link"/><line x1="283.4" y1="193.4" x2="288.7" y2="205.3" class="link"/><line x1="301" y1="150" x2="288.6" y2="146" class="link"/><line x1="288.6" y1="146" x2="276.3" y2="142" class="link"/><line x1="276.3" y1="142" x2="263.9" y2="137.9" class="link"/><line x1="263.9" y1="137.9" x2="251.5" y2="133.9" class="link"/><line x1="276.3" y1="142" x2="273.6" y2="129.2" class="link"/><line x1="273.6" y1="129.2" x2="270.9" y2="116.5" class="link"/><line x1="263.9" y1="137.9" x2="254.2" y2="146.6" class="link"/><line x1="254.2" y1="146.6" x2="244.6" y2="155.3" class="link"/><circle cx="301" cy="150" r="5.2" class="unit"/><circle cx="301" cy="137" r="5.2" class="unit"/><circle cx="301" cy="124" r="5.2" class="unit"/><circle cx="301" cy="111" r="5.2" class="unit"/><circle cx="301" cy="98" r="5.2" class="unit"/><circle cx="312.3" cy="117.5" r="5.2" class="unit"/><circle cx="323.5" cy="111" r="5.2" class="unit"/><circle cx="289.7" cy="104.5" r="5.2" class="unit"/><circle cx="278.5" cy="98" r="5.2" class="unit"/><circle cx="313.4" cy="146" r="5.2" class="unit"/><circle cx="325.7" cy="142" r="5.2" class="unit"/><circle cx="338.1" cy="137.9" r="5.2" class="unit"/><circle cx="350.5" cy="133.9" r="5.2" class="unit"/><circle cx="335.4" cy="150.7" r="5.2" class="unit"/><circle cx="345" cy="159.4" r="5.2" class="unit"/><circle cx="340.8" cy="125.2" r="5.2" class="unit"/><circle cx="343.5" cy="112.5" r="5.2" class="unit"/><circle cx="308.6" cy="160.5" r="5.2" class="unit"/><circle cx="316.3" cy="171" r="5.2" class="unit"/><circle cx="323.9" cy="181.6" r="5.2" class="unit"/><circle cx="331.6" cy="192.1" r="5.2" class="unit"/><circle cx="311" cy="182.9" r="5.2" class="unit"/><circle cx="305.7" cy="194.8" r="5.2" class="unit"/><circle cx="336.9" cy="180.2" r="5.2" class="unit"/><circle cx="349.8" cy="178.8" r="5.2" class="unit"/><circle cx="293.4" cy="160.5" r="5.2" class="unit"/><circle cx="285.7" cy="171" r="5.2" class="unit"/><circle cx="278.1" cy="181.6" r="5.2" class="unit"/><circle cx="270.4" cy="192.1" r="5.2" class="unit"/><circle cx="272.8" cy="169.7" r="5.2" class="unit"/><circle cx="259.9" cy="168.3" r="5.2" class="unit"/><circle cx="283.4" cy="193.4" r="5.2" class="unit"/><circle cx="288.7" cy="205.3" r="5.2" class="unit"/><circle cx="288.6" cy="146" r="5.2" class="unit"/><circle cx="276.3" cy="142" r="5.2" class="unit"/><circle cx="263.9" cy="137.9" r="5.2" class="unit"/><circle cx="251.5" cy="133.9" r="5.2" class="unit"/><circle cx="273.6" cy="129.2" r="5.2" class="unit"/><circle cx="270.9" cy="116.5" r="5.2" class="unit"/><circle cx="254.2" cy="146.6" r="5.2" class="unit"/><circle cx="244.6" cy="155.3" r="5.2" class="unit"/><line x1="424" y1="100" x2="437" y2="100" class="link"/><line x1="437" y1="100" x2="450" y2="100" class="link"/><line x1="450" y1="100" x2="463" y2="100" class="link"/><line x1="463" y1="100" x2="476" y2="100" class="link"/><line x1="476" y1="100" x2="489" y2="100" class="link"/><line x1="489" y1="100" x2="502" y2="100" class="link"/><line x1="502" y1="100" x2="515" y2="100" class="link"/><line x1="515" y1="100" x2="528" y2="100" class="link"/><line x1="528" y1="100" x2="541" y2="100" class="link"/><line x1="541" y1="100" x2="554" y2="100" class="link"/><line x1="554" y1="100" x2="567" y2="100" class="link"/><line x1="567" y1="100" x2="580" y2="100" class="link"/><line x1="437" y1="106.5" x2="437" y2="119.5" class="hb"/><line x1="463" y1="106.5" x2="463" y2="119.5" class="hb"/><line x1="489" y1="106.5" x2="489" y2="119.5" class="hb"/><line x1="515" y1="106.5" x2="515" y2="119.5" class="hb"/><line x1="541" y1="106.5" x2="541" y2="119.5" class="hb"/><line x1="567" y1="106.5" x2="567" y2="119.5" class="hb"/><circle cx="424" cy="100" r="5.2" class="unit"/><circle cx="437" cy="100" r="5.2" class="unit"/><circle cx="450" cy="100" r="5.2" class="unit"/><circle cx="463" cy="100" r="5.2" class="unit"/><circle cx="476" cy="100" r="5.2" class="unit"/><circle cx="489" cy="100" r="5.2" class="unit"/><circle cx="502" cy="100" r="5.2" class="unit"/><circle cx="515" cy="100" r="5.2" class="unit"/><circle cx="528" cy="100" r="5.2" class="unit"/><circle cx="541" cy="100" r="5.2" class="unit"/><circle cx="554" cy="100" r="5.2" class="unit"/><circle cx="567" cy="100" r="5.2" class="unit"/><circle cx="580" cy="100" r="5.2" class="unit"/><line x1="424" y1="126" x2="437" y2="126" class="link"/><line x1="437" y1="126" x2="450" y2="126" class="link"/><line x1="450" y1="126" x2="463" y2="126" class="link"/><line x1="463" y1="126" x2="476" y2="126" class="link"/><line x1="476" y1="126" x2="489" y2="126" class="link"/><line x1="489" y1="126" x2="502" y2="126" class="link"/><line x1="502" y1="126" x2="515" y2="126" class="link"/><line x1="515" y1="126" x2="528" y2="126" class="link"/><line x1="528" y1="126" x2="541" y2="126" class="link"/><line x1="541" y1="126" x2="554" y2="126" class="link"/><line x1="554" y1="126" x2="567" y2="126" class="link"/><line x1="567" y1="126" x2="580" y2="126" class="link"/><line x1="437" y1="132.5" x2="437" y2="145.5" class="hb"/><line x1="463" y1="132.5" x2="463" y2="145.5" class="hb"/><line x1="489" y1="132.5" x2="489" y2="145.5" class="hb"/><line x1="515" y1="132.5" x2="515" y2="145.5" class="hb"/><line x1="541" y1="132.5" x2="541" y2="145.5" class="hb"/><line x1="567" y1="132.5" x2="567" y2="145.5" class="hb"/><circle cx="424" cy="126" r="5.2" class="unit"/><circle cx="437" cy="126" r="5.2" class="unit"/><circle cx="450" cy="126" r="5.2" class="unit"/><circle cx="463" cy="126" r="5.2" class="unit"/><circle cx="476" cy="126" r="5.2" class="unit"/><circle cx="489" cy="126" r="5.2" class="unit"/><circle cx="502" cy="126" r="5.2" class="unit"/><circle cx="515" cy="126" r="5.2" class="unit"/><circle cx="528" cy="126" r="5.2" class="unit"/><circle cx="541" cy="126" r="5.2" class="unit"/><circle cx="554" cy="126" r="5.2" class="unit"/><circle cx="567" cy="126" r="5.2" class="unit"/><circle cx="580" cy="126" r="5.2" class="unit"/><line x1="424" y1="152" x2="437" y2="152" class="link"/><line x1="437" y1="152" x2="450" y2="152" class="link"/><line x1="450" y1="152" x2="463" y2="152" class="link"/><line x1="463" y1="152" x2="476" y2="152" class="link"/><line x1="476" y1="152" x2="489" y2="152" class="link"/><line x1="489" y1="152" x2="502" y2="152" class="link"/><line x1="502" y1="152" x2="515" y2="152" class="link"/><line x1="515" y1="152" x2="528" y2="152" class="link"/><line x1="528" y1="152" x2="541" y2="152" class="link"/><line x1="541" y1="152" x2="554" y2="152" class="link"/><line x1="554" y1="152" x2="567" y2="152" class="link"/><line x1="567" y1="152" x2="580" y2="152" class="link"/><line x1="437" y1="158.5" x2="437" y2="171.5" class="hb"/><line x1="463" y1="158.5" x2="463" y2="171.5" class="hb"/><line x1="489" y1="158.5" x2="489" y2="171.5" class="hb"/><line x1="515" y1="158.5" x2="515" y2="171.5" class="hb"/><line x1="541" y1="158.5" x2="541" y2="171.5" class="hb"/><line x1="567" y1="158.5" x2="567" y2="171.5" class="hb"/><circle cx="424" cy="152" r="5.2" class="unit"/><circle cx="437" cy="152" r="5.2" class="unit"/><circle cx="450" cy="152" r="5.2" class="unit"/><circle cx="463" cy="152" r="5.2" class="unit"/><circle cx="476" cy="152" r="5.2" class="unit"/><circle cx="489" cy="152" r="5.2" class="unit"/><circle cx="502" cy="152" r="5.2" class="unit"/><circle cx="515" cy="152" r="5.2" class="unit"/><circle cx="528" cy="152" r="5.2" class="unit"/><circle cx="541" cy="152" r="5.2" class="unit"/><circle cx="554" cy="152" r="5.2" class="unit"/><circle cx="567" cy="152" r="5.2" class="unit"/><circle cx="580" cy="152" r="5.2" class="unit"/><line x1="424" y1="178" x2="437" y2="178" class="link"/><line x1="437" y1="178" x2="450" y2="178" class="link"/><line x1="450" y1="178" x2="463" y2="178" class="link"/><line x1="463" y1="178" x2="476" y2="178" class="link"/><line x1="476" y1="178" x2="489" y2="178" class="link"/><line x1="489" y1="178" x2="502" y2="178" class="link"/><line x1="502" y1="178" x2="515" y2="178" class="link"/><line x1="515" y1="178" x2="528" y2="178" class="link"/><line x1="528" y1="178" x2="541" y2="178" class="link"/><line x1="541" y1="178" x2="554" y2="178" class="link"/><line x1="554" y1="178" x2="567" y2="178" class="link"/><line x1="567" y1="178" x2="580" y2="178" class="link"/><circle cx="424" cy="178" r="5.2" class="unit"/><circle cx="437" cy="178" r="5.2" class="unit"/><circle cx="450" cy="178" r="5.2" class="unit"/><circle cx="463" cy="178" r="5.2" class="unit"/><circle cx="476" cy="178" r="5.2" class="unit"/><circle cx="489" cy="178" r="5.2" class="unit"/><circle cx="502" cy="178" r="5.2" class="unit"/><circle cx="515" cy="178" r="5.2" class="unit"/><circle cx="528" cy="178" r="5.2" class="unit"/><circle cx="541" cy="178" r="5.2" class="unit"/><circle cx="554" cy="178" r="5.2" class="unit"/><circle cx="567" cy="178" r="5.2" class="unit"/><circle cx="580" cy="178" r="5.2" class="unit"/><text x="100" y="252" class="s mid">lange kjeder,</text><text x="100" y="270" class="s mid">noen med greiner</text><text x="301" y="252" class="s mid">svært mange</text><text x="301" y="270" class="s mid">korte greiner</text><text x="501" y="252" class="s mid">rette kjeder som</text><text x="501" y="270" class="s mid">ligger tett i fibre</text></svg></div><figcaption>Hver prikk er ett glukosemolekyl. Forskjellen ligger i hvordan glukosen er koblet sammen.</figcaption></figure><div class="more"><div class="tbl-wrap"><table class="cmp">
+<thead><tr><td></td><th scope="col">Stivelse</th><th scope="col">Glykogen</th><th scope="col">Cellulose</th></tr></thead>
+<tbody>
+<tr><th scope="row">Finnes i</th><td>Planter: potet, ris, korn, brød og pasta</td><td>Mennesker og dyr: leveren og musklene</td><td>Celleveggene til planter</td></tr>
+<tr><th scope="row">Oppgave</th><td>Energilager for planten</td><td>Energilager for kroppen</td><td>Gjør planten stiv og sterk</td></tr>
+<tr><th scope="row">Form</th><td>Lange kjeder, noen med greiner</td><td>Svært mange greiner</td><td>Rette kjeder som ligger tett</td></tr>
+<tr><th scope="row">Kan vi fordøye den?</th><td>Ja</td><td>Ja</td><td>Nei, den blir kostfiber</td></tr>
+</tbody></table></div></div>
+</div>
+</article>
+<article class="q reg" id="k9" aria-labelledby="k9-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">9</span><h3 class="q-title" id="k9-t"><span class="sr">Spørsmål 9: </span>Når vi spiser store sukkermolekyler, for eksempel stivelse, vil disse bli brutt opp i fordøyelsen til enklere monosakkarider. Hvorfor er det slik? Hva skjer med sukkeret som ikke blir brukt av cellene i kroppen?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k9-a">Vis svar</button>
+<div class="answer" id="k9-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Stivelse er for stor til å komme gjennom <strong>tarmveggen</strong> og inn i <strong>blodet</strong>. Derfor klipper <strong>enzymer</strong> den opp i glukose, som er liten nok. Blodet frakter glukosen til cellene, som bruker den til energi.</p><p>Sukker som ikke blir brukt, lagres som <strong>glykogen</strong> i leveren og musklene. Når glykogenlagrene er fulle, blir resten gjort om til <strong>fett</strong> og lagret i fettvevet.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 620 306" style="--w:620px" role="img" aria-label="Enzymer klipper stivelse til glukose. Glukosen går gjennom tarmveggen til blodet. Kroppen bruker den til energi, lagrer den som glykogen, og gjør resten om til fett."><defs><marker id="ah-k9" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><text x="132" y="24" class="b mid">I tarmen</text><text x="506" y="24" class="b mid">I kroppen</text><line x1="24" y1="150" x2="114" y2="150" class="link"/><circle cx="24" cy="150" r="6" class="unit"/><circle cx="39" cy="150" r="6" class="unit"/><circle cx="54" cy="150" r="6" class="unit"/><circle cx="69" cy="150" r="6" class="unit"/><circle cx="84" cy="150" r="6" class="unit"/><circle cx="99" cy="150" r="6" class="unit"/><circle cx="114" cy="150" r="6" class="unit"/><text x="69" y="178" class="s m mid">stivelse</text><line x1="126" y1="150" x2="174" y2="150" class="ln" marker-end="url(#ah-k9)"/><text x="150" y="132" class="s mid">enzymer</text><text x="150" y="174" class="s m mid">klipper</text><circle cx="194" cy="118" r="6" class="unit"/><circle cx="212" cy="142" r="6" class="unit"/><circle cx="194" cy="166" r="6" class="unit"/><circle cx="212" cy="190" r="6" class="unit"/><text x="203" y="216" class="s m mid">glukose</text><rect x="236" y="60" width="14" height="74" rx="3" class="wall"/><rect x="236" y="142" width="14" height="74" rx="3" class="wall"/><rect x="236" y="224" width="14" height="50" rx="3" class="wall"/><text x="243" y="296" class="s m mid">tarmveggen</text><line x1="222" y1="138" x2="285" y2="138" class="ln" marker-end="url(#ah-k9)"/><rect x="290" y="50" width="48" height="230" rx="24" class="vessel"/><text x="314" y="42" class="b mid">blodet</text><circle cx="314" cy="92" r="6" class="unit"/><circle cx="306" cy="140" r="6" class="unit"/><circle cx="322" cy="188" r="6" class="unit"/><circle cx="310" cy="236" r="6" class="unit"/><line x1="344" y1="95" x2="396" y2="95" class="ln" marker-end="url(#ah-k9)"/><rect x="402" y="67" width="208" height="56" rx="10" class="carb"/><circle cx="423" cy="86" r="10" class="numb"/><text x="423" y="90.5" class="xs b mid">1</text><text x="440" y="91" class="b">Cellene</text><text x="416" y="112" class="s">bruker glukose til energi</text><line x1="344" y1="165" x2="396" y2="165" class="ln" marker-end="url(#ah-k9)"/><rect x="402" y="137" width="208" height="56" rx="10" class="carb"/><circle cx="423" cy="156" r="10" class="numb"/><text x="423" y="160.5" class="xs b mid">2</text><text x="440" y="161" class="b">Lever og muskler</text><text x="416" y="182" class="s">lagrer resten som glykogen</text><line x1="344" y1="235" x2="396" y2="235" class="ln" marker-end="url(#ah-k9)"/><rect x="402" y="207" width="208" height="56" rx="10" class="fat"/><circle cx="423" cy="226" r="10" class="numb"/><text x="423" y="230.5" class="xs b mid">3</text><text x="440" y="231" class="b">Fettvev</text><text x="416" y="252" class="s">fulle lagre: blir til fett</text></svg></div><figcaption>Fra stivelse i tarmen til glukose i blodet. Tallene viser rekkefølgen: kroppen bruker sukkeret først, og lagrer det som er til overs.</figcaption></figure><div class="more"><p>Tarmveggen er som en sil med bitte små hull. En lang kjede kommer ikke gjennom, men enkeltbitene gjør det. Nedbrytingen starter i munnen, der enzymet amylase i spyttet begynner å klippe stivelsen. Den blir ferdig i tynntarmen.</p></div><p class="husk"><b class="husk-l">Husk</b><span>Bare små molekyler kommer gjennom tarmveggen.</span></p>
+</div>
+</article>
+<article class="q" id="k10" aria-labelledby="k10-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">10</span><h3 class="q-title" id="k10-t"><span class="sr">Spørsmål 10: </span>Gi eksempler på metoder vi har brukt for å påvise ulike typer av karbohydrater.</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="k10-a">Vis svar</button>
+<div class="answer" id="k10-a">
+<div class="short"><p class="lbl">Kort svar</p><p><strong>Jodløsning</strong> påviser stivelse: fargen blir blåsvart.</p><p><strong>Fehlings væske</strong> (eller Benedicts løsning) påviser sukker som glukose: når vi varmer opp, går fargen fra blå til teglrød.</p><p><strong>Glukosestrimler</strong> skifter farge når det er glukose i prøven.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 600 256" style="--w:600px" role="img" aria-label="Jod blir blåsvart med stivelse. Fehlings væske går fra blå til teglrød med sukker når den varmes opp. Glukosestrimmelen skifter farge når det er glukose."><defs><marker id="ah-k10" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><text x="100" y="22" class="b mid">Jodløsning</text><text x="100" y="40" class="s m mid">påviser stivelse</text><path d="M47,104 L47,170 A13,13 0 0 0 73,170 L73,104 Z" class="liq-iod"/><line x1="54" y1="112" x2="54" y2="164" class="shine"/><path d="M45,58 L45,170 A15,15 0 0 0 75,170 L75,58" class="glass"/><line x1="41" y1="58" x2="79" y2="58" class="glass"/><text x="60" y="208" class="s mid">uten</text><text x="60" y="224" class="s mid">stivelse</text><text x="60" y="244" class="xs m mid">gulbrun</text><path d="M127,104 L127,170 A13,13 0 0 0 153,170 L153,104 Z" class="liq-iodpos"/><line x1="134" y1="112" x2="134" y2="164" class="shine"/><path d="M125,58 L125,170 A15,15 0 0 0 155,170 L155,58" class="glass"/><line x1="121" y1="58" x2="159" y2="58" class="glass"/><text x="140" y="208" class="s mid">med</text><text x="140" y="224" class="s mid">stivelse</text><text x="140" y="244" class="xs m mid">blåsvart</text><line x1="82" y1="130" x2="118" y2="130" class="ln" marker-end="url(#ah-k10)"/><text x="300" y="22" class="b mid">Fehlings væske</text><text x="300" y="40" class="s m mid">påviser sukker</text><path d="M247,104 L247,170 A13,13 0 0 0 273,170 L273,104 Z" class="liq-feh"/><line x1="254" y1="112" x2="254" y2="164" class="shine"/><path d="M245,58 L245,170 A15,15 0 0 0 275,170 L275,58" class="glass"/><line x1="241" y1="58" x2="279" y2="58" class="glass"/><text x="260" y="208" class="s mid">før</text><text x="260" y="224" class="s mid">oppvarming</text><text x="260" y="244" class="xs m mid">blå</text><path d="M327,104 L327,170 A13,13 0 0 0 353,170 L353,104 Z" class="liq-fehpos"/><line x1="334" y1="112" x2="334" y2="164" class="shine"/><path d="M325,58 L325,170 A15,15 0 0 0 355,170 L355,58" class="glass"/><line x1="321" y1="58" x2="359" y2="58" class="glass"/><text x="340" y="208" class="s mid">med sukker,</text><text x="340" y="224" class="s mid">varmet opp</text><text x="340" y="244" class="xs m mid">teglrød</text><line x1="282" y1="130" x2="318" y2="130" class="ln" marker-end="url(#ah-k10)"/><text x="500" y="22" class="b mid">Glukosestrimmel</text><text x="500" y="40" class="s m mid">påviser glukose</text><rect x="452" y="58" width="16" height="130" rx="2" class="stripbody"/><rect x="452" y="148" width="16" height="24" rx="1" class="pad-neg"/><text x="460" y="208" class="s mid">uten</text><text x="460" y="224" class="s mid">glukose</text><text x="460" y="244" class="xs m mid">lys</text><rect x="532" y="58" width="16" height="130" rx="2" class="stripbody"/><rect x="532" y="148" width="16" height="24" rx="1" class="pad-pos"/><text x="540" y="208" class="s mid">med</text><text x="540" y="224" class="s mid">glukose</text><text x="540" y="244" class="xs m mid">mørk</text><line x1="482" y1="130" x2="518" y2="130" class="ln" marker-end="url(#ah-k10)"/><line x1="200" y1="14" x2="200" y2="250" class="sep"/><line x1="400" y1="14" x2="400" y2="250" class="sep"/></svg></div><figcaption>Fargen før og etter testen. Sjekk notatene dine for hvilke tester dere brukte i timen.</figcaption></figure><div class="more"><p>Vanlig sukker (sukrose) gir ikke utslag med Fehlings væske. Du kan teste for stivelse ved å dryppe jod på en potetskive eller et brødstykke.</p></div>
+</div>
+</article></div>
+</div>
+</section>
+<section class="sec sec-fat" id="fett" aria-labelledby="fett-h">
+<div class="wrap">
+<header class="sec-head"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="5" y="7" width="13" height="42" rx="3" class="fat"/><polyline points="18,15 26.7,10 35.3,15 44,10 52.6,15" class="fa"/><polyline points="18,28 26.7,23 35.3,28 44,23 52.6,28" class="fa"/><polyline points="18,41 26.7,36 35.3,41 44,36 52.6,41" class="fa"/></svg><h2 id="fett-h">Fett</h2><p class="count">5 spørsmål</p><p class="intro">Fett er bygget av karbon (C), hydrogen (H) og oksygen (O), akkurat som karbohydrater. Fett løser seg ikke i vann.</p></header>
+<div class="qs">
+<article class="q" id="f1" aria-labelledby="f1-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">1</span><h3 class="q-title" id="f1-t"><span class="sr">Spørsmål 1: </span>Hvilke oppgaver har fett i kroppen vår?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="f1-a">Vis svar</button>
+<div class="answer" id="f1-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Fett er kroppens <strong>energilager</strong>. Fettet under huden <strong>isolerer</strong> og holder på varmen, og fett er en <strong>støtpute</strong> rundt organer som nyrene.</p><p>Fett er en del av alle <strong>cellemembraner</strong>. Vi trenger fett for å ta opp <strong>vitaminene A, D, E og K</strong>, og fett gir oss livsviktige fettsyrer som omega-3.</p></div>
+<ul class="roles n6"><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="12" width="28" height="17" rx="3" class="icl"/><rect x="32" y="17" width="4" height="7" rx="1" class="ici"/><rect x="7.5" y="15.5" width="15" height="10" rx="1.5" class="fat-solid"/></svg><div><p class="r-h">Energilager</p><p>Fett gir mye energi og kan lagres i store mengder.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="16" y="4" width="8" height="23" rx="4" class="icl"/><circle cx="20" cy="30" r="6.5" class="fat-solid"/><line x1="20" y1="13" x2="20" y2="27" class="fat-tube thin"/></svg><div><p class="r-h">Varme</p><p>Et lag med fett under huden holder på varmen.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 4 L33 9 V19 C33 27 27.5 32.5 20 36 C12.5 32.5 7 27 7 19 V9 Z" class="fat"/></svg><div><p class="r-h">Støtpute</p><p>Fett rundt nyrene og andre organer tar av for støt.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="16" class="fat"/><circle cx="20" cy="20" r="11" class="icin"/><circle cx="23" cy="18" r="3.5" class="ici"/></svg><div><p class="r-h">Cellemembraner</p><p>Hver celle har en hinne som er laget av fettstoffer.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 4 C27 14 31 20 31 25 A11 11 0 0 1 9 25 C9 20 13 14 20 4 Z" class="fat"/></svg><div><p class="r-h">Vitamin A, D, E og K</p><p>Disse vitaminene løser seg i fett, ikke i vann.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M5 20 C11 10 25 10 30 20 C25 30 11 30 5 20 Z" class="fat"/><path d="M30 20 L37 13 V27 Z" class="fat"/><circle cx="12" cy="18.5" r="1.8" class="ici"/></svg><div><p class="r-h">Omega-3 og omega-6</p><p>Livsviktige fettsyrer som kroppen ikke kan lage selv.</p></div></li></ul><p class="husk"><b class="husk-l">Husk</b><span>Fettløselige vitaminer: A, D, E og K.</span></p>
+</div>
+</article>
+<article class="q" id="f2" aria-labelledby="f2-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">2</span><h3 class="q-title" id="f2-t"><span class="sr">Spørsmål 2: </span>Hvordan er fettstoffer (triglyserider) bygget opp? Lag tegning.</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="f2-a">Vis svar</button>
+<div class="answer" id="f2-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Et triglyserid består av <strong>ett glyserol</strong> og <strong>tre fettsyrer</strong>. Glyserolen er som en ryggrad, og de tre fettsyrene henger på den. Navnet forteller det: tri betyr tre.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 470 228" style="--w:470px" role="img" aria-label="Et triglyserid er ett glyserol med tre fettsyrer. Tegningen ligner en E."><defs><marker id="ah-f2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><rect x="36" y="34" width="84" height="172" rx="12" class="fat"/><text x="78" y="125" class="b mid">Glyserol</text><line x1="120" y1="64" x2="132" y2="64" class="fa"/><polyline points="132,64 147.6,55 163.2,64 178.8,55 194.4,64 209.9,55 225.5,64 241.1,55 256.7,64 272.3,55 287.9,64 303.5,55 319.1,64 334.6,55 350.2,64 365.8,55 381.4,64" class="fa"/><text x="396" y="65" class="s">fettsyre</text><line x1="120" y1="120" x2="132" y2="120" class="fa"/><polyline points="132,120 147.6,111 163.2,120 178.8,111 194.4,120 209.9,111 225.5,120 241.1,111 256.7,120 272.3,111 287.9,120 303.5,111 319.1,120 334.6,111 350.2,120 365.8,111 381.4,120" class="fa"/><text x="396" y="121" class="s">fettsyre</text><line x1="120" y1="176" x2="132" y2="176" class="fa"/><polyline points="132,176 147.6,167 163.2,176 178.8,167 194.4,176 209.9,167 225.5,176 241.1,167 256.7,176 272.3,167 287.9,176 303.5,167 319.1,176 334.6,167 350.2,176 365.8,167 381.4,176" class="fa"/><text x="396" y="177" class="s">fettsyre</text></svg></div><figcaption>Slik kan du tegne et triglyserid: en boks for glyserol, og tre sikksakk-linjer for fettsyrene.</figcaption></figure><div class="more"><p>Fettsyrene er lange kjeder av karbonatomer med hydrogenatomer rundt. Hver knekk i sikksakk-linjen er ett karbonatom.</p></div><p class="husk"><b class="husk-l">Husk</b><span>Tegningen ser ut som en E.</span></p>
+</div>
+</article>
+<article class="q" id="f3" aria-labelledby="f3-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">3</span><h3 class="q-title" id="f3-t"><span class="sr">Spørsmål 3: </span>Hva er forskjellen på mettet og umettet fett?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="f3-a">Vis svar</button>
+<div class="answer" id="f3-a">
+<div class="short"><p class="lbl">Kort svar</p><p>I <strong>mettet fett</strong> har fettsyrene bare enkeltbindinger mellom karbonatomene. Hvert karbonatom har så mange hydrogenatomer som det er plass til. Kjedene er rette og kan ligge tett, så mettet fett er <strong>fast</strong> ved romtemperatur, som smør.</p><p>I <strong>umettet fett</strong> har fettsyrene én eller flere <strong>dobbeltbindinger</strong>. Der får kjeden en knekk, og molekylene kan ikke ligge tett. Derfor er umettet fett <strong>flytende</strong> ved romtemperatur, som olje.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 600 350" style="--w:600px" role="img" aria-label="Mettet fett har rette kjeder som ligger tett og er fast. Umettet fett har en dobbeltbinding som gir en knekk, så molekylene ligger løst og fettet er flytende."><defs><marker id="ah-f3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><text x="150" y="24" class="b mid">Mettet fett</text><text x="450" y="24" class="b mid">Umettet fett</text><line x1="300" y1="12" x2="300" y2="344" class="sep"/><line x1="46" y1="84" x2="63" y2="84" class="bondm"/><line x1="237" y1="84" x2="254" y2="84" class="bondm"/><line x1="86" y1="84" x2="114" y2="84" class="bond-ink"/><line x1="136" y1="84" x2="164" y2="84" class="bond-ink"/><line x1="186" y1="84" x2="214" y2="84" class="bond-ink"/><line x1="75" y1="60" x2="75" y2="74" class="bond-ink"/><text x="75" y="55" class="mid">H</text><line x1="75" y1="95" x2="75" y2="110" class="bond-ink"/><text x="75" y="127" class="mid">H</text><text x="75" y="89.5" class="b mid">C</text><line x1="125" y1="60" x2="125" y2="74" class="bond-ink"/><text x="125" y="55" class="mid">H</text><line x1="125" y1="95" x2="125" y2="110" class="bond-ink"/><text x="125" y="127" class="mid">H</text><text x="125" y="89.5" class="b mid">C</text><line x1="175" y1="60" x2="175" y2="74" class="bond-ink"/><text x="175" y="55" class="mid">H</text><line x1="175" y1="95" x2="175" y2="110" class="bond-ink"/><text x="175" y="127" class="mid">H</text><text x="175" y="89.5" class="b mid">C</text><line x1="225" y1="60" x2="225" y2="74" class="bond-ink"/><text x="225" y="55" class="mid">H</text><line x1="225" y1="95" x2="225" y2="110" class="bond-ink"/><text x="225" y="127" class="mid">H</text><text x="225" y="89.5" class="b mid">C</text><line x1="346" y1="84" x2="363" y2="84" class="bondm"/><line x1="537" y1="84" x2="554" y2="84" class="bondm"/><line x1="386" y1="84" x2="414" y2="84" class="bond-ink"/><line x1="436" y1="80.5" x2="464" y2="80.5" class="bond-ink"/><line x1="436" y1="87.5" x2="464" y2="87.5" class="bond-ink"/><line x1="486" y1="84" x2="514" y2="84" class="bond-ink"/><line x1="375" y1="60" x2="375" y2="74" class="bond-ink"/><text x="375" y="55" class="mid">H</text><line x1="375" y1="95" x2="375" y2="110" class="bond-ink"/><text x="375" y="127" class="mid">H</text><text x="375" y="89.5" class="b mid">C</text><line x1="425" y1="60" x2="425" y2="74" class="bond-ink"/><text x="425" y="55" class="mid">H</text><text x="425" y="89.5" class="b mid">C</text><line x1="475" y1="60" x2="475" y2="74" class="bond-ink"/><text x="475" y="55" class="mid">H</text><text x="475" y="89.5" class="b mid">C</text><line x1="525" y1="60" x2="525" y2="74" class="bond-ink"/><text x="525" y="55" class="mid">H</text><line x1="525" y1="95" x2="525" y2="110" class="bond-ink"/><text x="525" y="127" class="mid">H</text><text x="525" y="89.5" class="b mid">C</text><line x1="450" y1="95" x2="450" y2="109" class="lead"/><text x="450" y="124" class="s mid">dobbeltbinding</text><text x="150" y="156" class="s m mid">bare enkeltbindinger, fullt av H</text><text x="450" y="156" class="s m mid">færre H og en knekk i kjeden</text><polyline points="42,196 57.6,187 73.2,196 88.8,187 104.4,196 119.9,187 135.5,196 151.1,187 166.7,196 182.3,187 197.9,196 213.5,187 229.1,196" class="fa"/><polyline points="342,192 357.6,183 373.2,192 388.8,183 404.4,192 419.9,183 435.5,192 453.4,194.5 460.1,211.2 477.9,213.7 484.7,230.4 502.5,232.9" class="fa"/><text x="427.5" y="178" class="s m end">knekk</text><line x1="70" y1="254" x2="230" y2="254" class="stick"/><line x1="70" y1="264" x2="230" y2="264" class="stick"/><line x1="70" y1="274" x2="230" y2="274" class="stick"/><line x1="70" y1="284" x2="230" y2="284" class="stick"/><line x1="70" y1="294" x2="230" y2="294" class="stick"/><line x1="70" y1="304" x2="230" y2="304" class="stick"/><polyline points="330,254 370,254 393,273.3" class="stick"/><polyline points="420,262 456.3,278.9 468.9,306.1" class="stick"/><polyline points="345,300 383.6,289.6 410.8,302.3" class="stick"/><polyline points="500,300 525.7,269.4 555.3,264.1" class="stick"/><text x="150" y="338" class="s mid">ligger tett: fast, som smør</text><text x="450" y="338" class="s mid">ligger løst: flytende, som olje</text></svg></div><figcaption>Øverst atomene, i midten formen på fettsyren, nederst hvordan molekylene ligger. Rette kjeder ligger tett, kjeder med knekk ligger løst.</figcaption></figure><div class="more"><p>Enumettet fett har én dobbeltbinding. Flerumettet fett har flere. Omega-3 er flerumettet fett.</p></div><p class="husk"><b class="husk-l">Husk</b><span>Mettet fett er «mett» på hydrogen. Det er ikke plass til flere H.</span></p>
+</div>
+</article>
+<article class="q" id="f4" aria-labelledby="f4-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">4</span><h3 class="q-title" id="f4-t"><span class="sr">Spørsmål 4: </span>Gi minst to eksempler på mat som inneholder mye mettet fett, og mat med mye umettet fett.</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="f4-a">Vis svar</button>
+<div class="answer" id="f4-a">
+<div class="short"><p class="lbl">Kort svar</p><p><strong>Mye mettet fett:</strong> smør, fet ost, fløte, fett kjøtt som bacon og pølser, kokosfett og sjokolade.</p><p><strong>Mye umettet fett:</strong> olivenolje, rapsolje, avokado, nøtter, frø og fet fisk som laks, makrell og sild.</p></div>
+<figure class="fig"><div class="fig-body"><div class="chart">
+<p class="ch-title" id="mettet-t">Hvor mye av fettet er mettet?</p>
+<div class="legend-row"><span><i class="key k-sat"></i>Mettet fett</span><span><i class="key k-unsat"></i>Umettet fett (resten)</span></div>
+<table class="bars sat" aria-labelledby="mettet-t">
+<thead><tr><td></td><td class="bar-cell"><span class="half-lbl">halvparten</span></td><td></td></tr></thead>
+<tbody>
+<tr tabindex="0" data-v="ca. 85 % mettet fett" data-l="Kokosfett"><th scope="row">Kokosfett</th><td class="bar-cell"><span class="track"><span class="fill" style="width:85%"></span></span><span class="half" aria-hidden="true"></span></td><td class="val">85 %</td></tr>
+<tr tabindex="0" data-v="ca. 63 % mettet fett" data-l="Smør"><th scope="row">Smør</th><td class="bar-cell"><span class="track"><span class="fill" style="width:63%"></span></span><span class="half" aria-hidden="true"></span></td><td class="val">63 %</td></tr>
+<tr tabindex="0" data-v="ca. 60 % mettet fett" data-l="Melkesjokolade"><th scope="row">Melkesjokolade</th><td class="bar-cell"><span class="track"><span class="fill" style="width:60%"></span></span><span class="half" aria-hidden="true"></span></td><td class="val">60 %</td></tr>
+<tr tabindex="0" data-v="ca. 20 % mettet fett" data-l="Laks"><th scope="row">Laks</th><td class="bar-cell"><span class="track"><span class="fill" style="width:20%"></span></span><span class="half" aria-hidden="true"></span></td><td class="val">20 %</td></tr>
+<tr tabindex="0" data-v="ca. 14 % mettet fett" data-l="Olivenolje"><th scope="row">Olivenolje</th><td class="bar-cell"><span class="track"><span class="fill" style="width:14%"></span></span><span class="half" aria-hidden="true"></span></td><td class="val">14 %</td></tr>
+<tr tabindex="0" data-v="ca. 14 % mettet fett" data-l="Avokado"><th scope="row">Avokado</th><td class="bar-cell"><span class="track"><span class="fill" style="width:14%"></span></span><span class="half" aria-hidden="true"></span></td><td class="val">14 %</td></tr>
+<tr tabindex="0" data-v="ca. 9 % mettet fett" data-l="Valnøtter"><th scope="row">Valnøtter</th><td class="bar-cell"><span class="track"><span class="fill" style="width:9%"></span></span><span class="half" aria-hidden="true"></span></td><td class="val">9 %</td></tr>
+<tr tabindex="0" data-v="ca. 7 % mettet fett" data-l="Rapsolje"><th scope="row">Rapsolje</th><td class="bar-cell"><span class="track"><span class="fill" style="width:7%"></span></span><span class="half" aria-hidden="true"></span></td><td class="val">7 %</td></tr>
+</tbody></table>
+</div></div><figcaption>Andelen mettet fett av alt fettet i maten. Resten er for det meste umettet fett. Tallene er omtrentlige.</figcaption></figure><div class="more"><p>Tommelfingerregel: Fast fett fra dyr har mye mettet fett. Flytende oljer fra planter og fisk har mye umettet fett. Kokosfett er et unntak: det kommer fra en plante, men er mest mettet.</p></div>
+</div>
+</article>
+<article class="q" id="f5" aria-labelledby="f5-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">5</span><h3 class="q-title" id="f5-t"><span class="sr">Spørsmål 5: </span>Hvorfor kan mettet fett være helseskadelig i store mengder?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="f5-a">Vis svar</button>
+<div class="answer" id="f5-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Mye mettet fett gir mer av det <strong>«dårlige» kolesterolet (LDL)</strong> i blodet. Kolesterol og fett kan feste seg på innsiden av blodårene. Da blir årene <strong>trangere og stivere</strong>. Dette kalles åreforkalkning.</p><p>Trange årer gir større fare for <strong>hjerteinfarkt</strong> og <strong>hjerneslag</strong>. Fett gir også mye energi, så for mye fett kan føre til overvekt.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 560 242" style="--w:560px" role="img" aria-label="En frisk blodåre har god plass til blodet. I en trang blodåre har fett og kolesterol festet seg på innsiden."><defs><marker id="ah-f5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><circle cx="110" cy="108" r="72" class="vwall"/><circle cx="110" cy="108" r="54" class="lumen"/><text x="110" y="113" class="s m mid">blodet</text><circle cx="450" cy="108" r="72" class="vwall"/><circle cx="450" cy="108" r="54" class="fat"/><circle cx="468" cy="92" r="25" class="lumen"/><text x="468" y="96.5" class="xs m mid">blodet</text><line x1="198" y1="108" x2="362" y2="108" class="ln" marker-end="url(#ah-f5)"/><text x="280" y="92" class="s mid">mye mettet fett</text><text x="280" y="132" class="s m mid">over mange år</text><text x="110" y="208" class="b mid">Frisk blodåre</text><text x="110" y="227" class="s m mid">god plass til blodet</text><text x="450" y="208" class="b mid">Trang blodåre</text><rect x="368" y="217" width="12" height="12" rx="2" class="fat"/><text x="386" y="227" class="s m">fett og kolesterol (plakk)</text></svg></div><figcaption>Til venstre en frisk blodåre. Til høyre en blodåre der fett og kolesterol har festet seg, så det er mindre plass til blodet.</figcaption></figure><div class="more"><p>Helsedirektoratet anbefaler at mindre enn 10 prosent av energien vi får i oss, kommer fra mettet fett. Bytt gjerne smør med myk margarin eller olje, og spis fet fisk.</p></div>
+</div>
+</article></div>
+</div>
+</section>
+<section class="sec sec-prot" id="proteiner" aria-labelledby="proteiner-h">
+<div class="wrap">
+<header class="sec-head"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M11 37 L28 20 L45 37" class="pbond"/><circle cx="11" cy="37" r="9" class="prot"/><circle cx="28" cy="20" r="9" class="prot"/><circle cx="45" cy="37" r="9" class="prot"/></svg><h2 id="proteiner-h">Proteiner</h2><p class="count">7 spørsmål</p><p class="intro">Proteiner er bygget av karbon (C), hydrogen (H), oksygen (O) og nitrogen (N). Nitrogenet skiller proteiner fra karbohydrater og fett.</p></header>
+<div class="qs">
+<article class="q" id="p1" aria-labelledby="p1-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">1</span><h3 class="q-title" id="p1-t"><span class="sr">Spørsmål 1: </span>Hvilke oppgaver har proteiner i kroppen?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="p1-a">Vis svar</button>
+<div class="answer" id="p1-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Proteiner er <strong>byggesteiner</strong>. Muskler, hud, hår, negler og organer er laget av proteiner, og proteiner reparerer skader.</p><p>Mange proteiner er <strong>enzymer</strong> som setter fart på reaksjoner i kroppen. Noen er <strong>hormoner</strong>, noen <strong>frakter stoffer</strong> i blodet, og <strong>antistoffer</strong> i immunforsvaret er proteiner. Proteiner kan også gi energi.</p></div>
+<ul class="roles n6"><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="4" y="22" width="15" height="10" rx="1.5" class="prot"/><rect x="21" y="22" width="15" height="10" rx="1.5" class="prot"/><rect x="12.5" y="10" width="15" height="10" rx="1.5" class="prot"/></svg><div><p class="r-h">Bygge og reparere</p><p>Muskler, hud, hår og negler er laget av proteiner.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M4 16 H12 V23 H28 V16 H36 V33 H4 Z" class="prot"/><rect x="12.5" y="6" width="7" height="7" rx="1.5" class="carb"/><rect x="20.5" y="6" width="7" height="7" rx="1.5" class="carb"/></svg><div><p class="r-h">Enzymer</p><p>Setter fart på reaksjoner, for eksempel i fordøyelsen.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><ellipse cx="16" cy="21" rx="12" ry="9" class="prot-solid"/><ellipse cx="16" cy="21" rx="5" ry="3" class="icin"/><path d="M29 21 H37 M33 17 L37 21 L33 25" class="icl"/></svg><div><p class="r-h">Transport</p><p>Hemoglobin i blodet frakter oksygen rundt i kroppen.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect x="5" y="10" width="30" height="21" rx="2.5" class="prot"/><path d="M6 12 L20 23 L34 12" class="icl"/></svg><div><p class="r-h">Hormoner</p><p>Budbringere i kroppen. Insulin er et eksempel.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 36 V21 L10 8 M20 21 L30 8" class="prot-tube"/></svg><div><p class="r-h">Forsvar</p><p>Antistoffer hjelper kroppen å bekjempe bakterier og virus.</p></div></li><li><svg class="ic" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M23 3 L9 23 H19 L16 37 L31 15 H21 Z" class="prot"/></svg><div><p class="r-h">Energi</p><p>Proteiner kan brukes som energi når det trengs.</p></div></li></ul>
+</div>
+</article>
+<article class="q" id="p2" aria-labelledby="p2-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">2</span><h3 class="q-title" id="p2-t"><span class="sr">Spørsmål 2: </span>Hvordan er proteiner bygget opp? Tegn et lite protein</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="p2-a">Vis svar</button>
+<div class="answer" id="p2-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Proteiner er <strong>lange kjeder av aminosyrer</strong>. Aminosyrene er bundet sammen som perler på en snor. Bindingene kalles <strong>peptidbindinger</strong>. Kjeden folder seg til en bestemt form.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 580 218" style="--w:580px" role="img" aria-label="Et lite protein: aminosyrer hektet sammen i en kjede, som så folder seg til en bestemt form."><defs><marker id="ah-p2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><line x1="34" y1="96" x2="74" y2="112" class="pbond"/><line x1="74" y1="112" x2="114" y2="96" class="pbond"/><line x1="114" y1="96" x2="154" y2="112" class="pbond"/><line x1="154" y1="112" x2="194" y2="96" class="pbond"/><line x1="194" y1="96" x2="234" y2="112" class="pbond"/><line x1="234" y1="112" x2="274" y2="96" class="pbond"/><circle cx="34" cy="96" r="17" class="prot"/><text x="34" y="100.5" class="xs b mid">Gly</text><circle cx="74" cy="112" r="17" class="prot"/><text x="74" y="116.5" class="xs b mid">Ala</text><circle cx="114" cy="96" r="17" class="prot"/><text x="114" y="100.5" class="xs b mid">Ser</text><circle cx="154" cy="112" r="17" class="prot"/><text x="154" y="116.5" class="xs b mid">Cys</text><circle cx="194" cy="96" r="17" class="prot"/><text x="194" y="100.5" class="xs b mid">Leu</text><circle cx="234" cy="112" r="17" class="prot"/><text x="234" y="116.5" class="xs b mid">Lys</text><circle cx="274" cy="96" r="17" class="prot"/><text x="274" y="100.5" class="xs b mid">Val</text><line x1="94" y1="108" x2="94" y2="146" class="lead"/><text x="94" y="162" class="s m mid">peptidbinding</text><line x1="300" y1="120" x2="356" y2="120" class="ln" marker-end="url(#ah-p2)"/><text x="328" y="106" class="s mid">folder seg</text><ellipse cx="452" cy="135" rx="70" ry="52" class="shape"/><line x1="408" y1="152" x2="420" y2="120" class="pbond"/><line x1="420" y1="120" x2="452" y2="106" class="pbond"/><line x1="452" y1="106" x2="486" y2="114" class="pbond"/><line x1="486" y1="114" x2="496" y2="147" class="pbond"/><line x1="496" y1="147" x2="466" y2="164" class="pbond"/><line x1="466" y1="164" x2="448" y2="136" class="pbond"/><circle cx="408" cy="152" r="15" class="prot"/><text x="408" y="156" class="xxs b mid">Gly</text><circle cx="420" cy="120" r="15" class="prot"/><text x="420" y="124" class="xxs b mid">Ala</text><circle cx="452" cy="106" r="15" class="prot"/><text x="452" y="110" class="xxs b mid">Ser</text><circle cx="486" cy="114" r="15" class="prot"/><text x="486" y="118" class="xxs b mid">Cys</text><circle cx="496" cy="147" r="15" class="prot"/><text x="496" y="151" class="xxs b mid">Leu</text><circle cx="466" cy="164" r="15" class="prot"/><text x="466" y="168" class="xxs b mid">Lys</text><circle cx="448" cy="136" r="15" class="prot"/><text x="448" y="140" class="xxs b mid">Val</text><text x="154" y="206" class="b mid">1. Aminosyrer i en kjede</text><text x="452" y="206" class="b mid">2. Kjeden folder seg</text></svg></div><figcaption>Slik kan du tegne et lite protein: sirkler for aminosyrene og streker for bindingene. Gly, Ala og de andre er forkortelser for navn på aminosyrer.</figcaption></figure><div class="more"><p>Små proteiner har rundt 50 aminosyrer. Insulin har 51. Store proteiner kan ha mange tusen.</p></div>
+</div>
+</article>
+<article class="q" id="p3" aria-labelledby="p3-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">3</span><h3 class="q-title" id="p3-t"><span class="sr">Spørsmål 3: </span>Hvor mange forskjellige aminosyrer bygger opp proteinene i kroppen vår?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="p3-a">Vis svar</button>
+<div class="answer" id="p3-a">
+<div class="short"><p class="lbl">Kort svar</p><p><strong>20</strong> forskjellige aminosyrer.</p></div>
+<figure class="fig"><div class="fig-body"><div class="aa-legend"><span><i class="e"></i>essensiell: må komme fra maten (9)</span><span><i></i>kroppen lager den selv (11)</span></div>
+<ul class="aa" aria-label="De 20 aminosyrene"><li>Alanin</li><li>Arginin</li><li>Asparagin</li><li>Asparaginsyre</li><li>Cystein</li><li class="ess">Fenylalanin<span class="sr"> (essensiell)</span></li><li>Glutamin</li><li>Glutaminsyre</li><li>Glysin</li><li class="ess">Histidin<span class="sr"> (essensiell)</span></li><li class="ess">Isoleucin<span class="sr"> (essensiell)</span></li><li class="ess">Leucin<span class="sr"> (essensiell)</span></li><li class="ess">Lysin<span class="sr"> (essensiell)</span></li><li class="ess">Metionin<span class="sr"> (essensiell)</span></li><li>Prolin</li><li>Serin</li><li class="ess">Treonin<span class="sr"> (essensiell)</span></li><li class="ess">Tryptofan<span class="sr"> (essensiell)</span></li><li>Tyrosin</li><li class="ess">Valin<span class="sr"> (essensiell)</span></li></ul></div><figcaption>De 20 aminosyrene. De 9 uthevede er essensielle, se spørsmål 4.</figcaption></figure><div class="more"><p>Med bare 20 aminosyrer kan kroppen lage mange tusen forskjellige proteiner. Det er som med alfabetet: med 29 bokstaver kan vi skrive alle ordene på norsk.</p></div>
+</div>
+</article>
+<article class="q" id="p4" aria-labelledby="p4-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">4</span><h3 class="q-title" id="p4-t"><span class="sr">Spørsmål 4: </span>Hva er en essensiell aminosyre?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="p4-a">Vis svar</button>
+<div class="answer" id="p4-a">
+<div class="short"><p class="lbl">Kort svar</p><p>En essensiell aminosyre er en aminosyre som <strong>kroppen ikke kan lage selv</strong>. Vi må få den <strong>gjennom maten</strong>. Det finnes 9 essensielle aminosyrer.</p></div>
+<figure class="fig"><div class="fig-body"><div class="split">
+<div><p class="n">11</p><p class="n-t">Kroppen lager selv</p><p class="n-s">Kroppen kan bygge disse av andre stoffer.</p></div>
+<div><p class="n">9</p><p class="n-t">Må komme fra maten</p><ul class="chips prot"><li>Fenylalanin</li><li>Histidin</li><li>Isoleucin</li><li>Leucin</li><li>Lysin</li><li>Metionin</li><li>Treonin</li><li>Tryptofan</li><li>Valin</li></ul></div>
+</div>
+<div><p class="fg-h">Mat som gir alle de essensielle</p><ul class="chips"><li>Kjøtt</li><li>Fisk</li><li>Egg</li><li>Melk</li><li>Soya</li><li>Bønner + korn</li></ul></div></div><figcaption>Kroppen kan lage 11 av aminosyrene selv. De 9 essensielle må komme fra maten.</figcaption></figure><div class="more"><p>Noen bøker sier 8 essensielle aminosyrer. Da er histidin ikke regnet med. Kjøtt, fisk, egg, melk og soya gir alle de essensielle aminosyrene. Vegetarianere kan kombinere ulike planter, for eksempel bønner og korn.</p></div><p class="husk"><b class="husk-l">Husk</b><span>Essensiell betyr «helt nødvendig».</span></p>
+</div>
+</article>
+<article class="q reg" id="p5" aria-labelledby="p5-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">5</span><h3 class="q-title" id="p5-t"><span class="sr">Spørsmål 5: </span>Hva er det som bestemmer egenskapene til et protein?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="p5-a">Vis svar</button>
+<div class="answer" id="p5-a">
+<div class="short"><p class="lbl">Kort svar</p><p><strong>Rekkefølgen</strong> av aminosyrene i kjeden. Rekkefølgen bestemmer hvordan kjeden <strong>folder seg</strong>, og formen bestemmer hva proteinet kan gjøre. Rekkefølgen er bestemt av <strong>genene</strong> våre (DNA).</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 540 286" style="--w:540px" role="img" aria-label="Protein A og B har de samme aminosyrene i ulik rekkefølge. A blir lang og tynn, B blir rund og kompakt."><defs><marker id="ah-p5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><text x="20" y="40" class="b">Protein A</text><line x1="34" y1="72" x2="214" y2="72" class="pbond"/><circle cx="34" cy="72" r="12" class="prot"/><rect x="59" y="61" width="22" height="22" rx="3" class="prot"/><polygon points="106,60 119,82.5 93,82.5" class="prot"/><circle cx="142" cy="72" r="12" class="prot"/><rect x="167" y="61" width="22" height="22" rx="3" class="prot"/><polygon points="214,60 227,82.5 201,82.5" class="prot"/><line x1="236" y1="72" x2="290" y2="72" class="ln" marker-end="url(#ah-p5)"/><text x="20" y="164" class="b">Protein B</text><line x1="34" y1="196" x2="214" y2="196" class="pbond"/><polygon points="34,184 47,206.5 21,206.5" class="prot"/><circle cx="70" cy="196" r="12" class="prot"/><circle cx="106" cy="196" r="12" class="prot"/><rect x="131" y="185" width="22" height="22" rx="3" class="prot"/><polygon points="178,184 191,206.5 165,206.5" class="prot"/><rect x="203" y="185" width="22" height="22" rx="3" class="prot"/><line x1="236" y1="196" x2="290" y2="196" class="ln" marker-end="url(#ah-p5)"/><path d="M314,72 q13,-22 26,0 t26,0 t26,0 t26,0 t26,0 t26,0 t26,0 t26,0" class="coil"/><text x="418" y="118" class="s mid">lang og tynn, som en tråd</text><text x="418" y="136" class="s m mid">f.eks. keratin i hår</text><path d="M464,196 C463.8,204.4 455.6,214.1 447.9,220.7 C440.3,227.4 428.1,235.8 418,235.9 C407.9,236 395,228.2 387.1,221.5 C379.2,214.9 370.3,204.3 370.6,196 C370.9,187.7 380.8,178.5 388.7,171.8 C396.6,165.2 407.9,156.4 418,156.1 C428.1,155.8 441.6,163.6 449.2,170.2 C456.9,176.9 464.2,187.6 464,196Z" class="prot"/><path d="M394,192 q8,-20 24,-8 t20,8 t-10,20 t-26,-2 t6,-16" class="pbond"/><text x="418" y="256" class="s mid">rund og kompakt</text><text x="418" y="274" class="s m mid">f.eks. et enzym</text></svg></div><div class="fig-body"><div class="words" aria-label="Bokstavene T, R og E kan bli TRE eller ERT">
+<div class="word" aria-hidden="true"><span>T</span><span>R</span><span>E</span></div>
+<p class="word-m">og</p>
+<div class="word" aria-hidden="true"><span>E</span><span>R</span><span>T</span></div>
+<p class="word-m">Samme bokstaver, ulik rekkefølge, ulikt ord.</p>
+</div></div><figcaption>Samme aminosyrer i ulik rekkefølge gir ulik form. Sirkel, firkant og trekant står for tre ulike aminosyrer.</figcaption></figure>
+</div>
+</article>
+<article class="q" id="p6" aria-labelledby="p6-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">6</span><h3 class="q-title" id="p6-t"><span class="sr">Spørsmål 6: </span>Hva er et enzym?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="p6-a">Vis svar</button>
+<div class="answer" id="p6-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Et enzym er et <strong>protein som setter fart på en kjemisk reaksjon</strong> i kroppen, uten å bli brukt opp selv. Hvert enzym passer bare til <strong>ett bestemt stoff</strong>, som en nøkkel i en lås.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 600 252" style="--w:600px" role="img" aria-label="Laktose passer inn i enzymet laktase, blir delt i glukose og galaktose, og enzymet er det samme etterpå."><defs><marker id="ah-p6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><path d="M20,132 Q20,120 32,120 L50,120 L50,144 L110,144 L110,120 L128,120 Q140,120 140,132 L140,178 Q140,190 128,190 L32,190 Q20,190 20,178 Z" class="prot"/><text x="80" y="174" class="b mid">laktase</text><rect x="51" y="58" width="28" height="22" rx="4" class="carb"/><rect x="81" y="58" width="28" height="22" rx="4" class="carb"/><text x="80" y="48" class="s mid">laktose</text><line x1="80" y1="86" x2="80" y2="115" class="ln" marker-end="url(#ah-p6)"/><path d="M240,132 Q240,120 252,120 L270,120 L270,144 L330,144 L330,120 L348,120 Q360,120 360,132 L360,178 Q360,190 348,190 L252,190 Q240,190 240,178 Z" class="prot"/><text x="300" y="174" class="b mid">laktase</text><rect x="271" y="121" width="28" height="22" rx="4" class="carb"/><rect x="301" y="121" width="28" height="22" rx="4" class="carb"/><line x1="300" y1="106" x2="300" y2="151" class="cut"/><text x="300" y="98" class="s m mid">deles her</text><path d="M460,132 Q460,120 472,120 L490,120 L490,144 L550,144 L550,120 L568,120 Q580,120 580,132 L580,178 Q580,190 568,190 L472,190 Q460,190 460,178 Z" class="prot"/><text x="520" y="174" class="b mid">laktase</text><rect x="462" y="62" width="28" height="22" rx="4" class="carb"/><rect x="550" y="62" width="28" height="22" rx="4" class="carb"/><text x="476" y="52" class="s mid">glukose</text><text x="564" y="52" class="s mid">galaktose</text><line x1="500" y1="115" x2="482" y2="90" class="ln" marker-end="url(#ah-p6)"/><line x1="540" y1="115" x2="558" y2="90" class="ln" marker-end="url(#ah-p6)"/><line x1="152" y1="155" x2="228" y2="155" class="ln" marker-end="url(#ah-p6)"/><line x1="372" y1="155" x2="448" y2="155" class="ln" marker-end="url(#ah-p6)"/><text x="80" y="222" class="b mid">1. Passer sammen</text><text x="80" y="240" class="s m mid">som nøkkel og lås</text><text x="300" y="222" class="b mid">2. Laktosen deles</text><text x="300" y="240" class="s m mid">enzymet gjør det raskt</text><text x="520" y="222" class="b mid">3. Klar igjen</text><text x="520" y="240" class="s m mid">enzymet er som før</text></svg></div><figcaption>Enzymet laktase og melkesukkeret laktose passer sammen som nøkkel og lås. Etterpå er enzymet klart til å gjøre det samme igjen.</figcaption></figure><div class="more"><p>Fordøyelsesenzymer klipper maten i små biter: amylase bryter ned stivelse, pepsin bryter ned proteiner, lipase bryter ned fett og laktase deler laktose.</p></div>
+</div>
+</article>
+<article class="q reg" id="p7" aria-labelledby="p7-t">
+<div class="q-head"><span class="q-num" aria-hidden="true">7</span><h3 class="q-title" id="p7-t"><span class="sr">Spørsmål 7: </span>Proteiner kan denatureres. Hva ligger i dette begrepet?</h3></div>
+<button class="reveal" type="button" aria-expanded="false" aria-controls="p7-a">Vis svar</button>
+<div class="answer" id="p7-a">
+<div class="short"><p class="lbl">Kort svar</p><p>Å denaturere betyr at proteinet <strong>mister formen sin</strong>. Kjeden folder seg ut eller klumper seg, og da kan proteinet ikke gjøre jobben sin lenger.</p><p>Det kan skje ved <strong>varme</strong>, <strong>syre</strong>, <strong>base</strong>, <strong>salt</strong> eller <strong>alkohol</strong>. Ofte kan det ikke gjøres om.</p></div>
+<figure class="fig"><div class="fig-scroll"><svg class="dia" viewBox="0 0 600 310" style="--w:600px" role="img" aria-label="Varme gjør at proteinet mister formen, men aminosyrene er der fortsatt. Et rått egg har klar eggehvite, et stekt egg har hvit og fast eggehvite."><defs><marker id="ah-p7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs><ellipse cx="110" cy="84" rx="58" ry="44" class="shape"/><line x1="74.8" y1="98.4" x2="84.4" y2="72.8" class="pbond"/><line x1="84.4" y1="72.8" x2="110" y2="61.6" class="pbond"/><line x1="110" y1="61.6" x2="137.2" y2="68" class="pbond"/><line x1="137.2" y1="68" x2="145.2" y2="94.4" class="pbond"/><line x1="145.2" y1="94.4" x2="121.2" y2="108" class="pbond"/><line x1="121.2" y1="108" x2="106.8" y2="85.6" class="pbond"/><circle cx="74.8" cy="98.4" r="12" class="prot"/><circle cx="84.4" cy="72.8" r="12" class="prot"/><circle cx="110" cy="61.6" r="12" class="prot"/><circle cx="137.2" cy="68" r="12" class="prot"/><circle cx="145.2" cy="94.4" r="12" class="prot"/><circle cx="121.2" cy="108" r="12" class="prot"/><circle cx="106.8" cy="85.6" r="12" class="prot"/><text x="110" y="152" class="s mid">riktig form: virker</text><line x1="186" y1="84" x2="330" y2="84" class="ln" marker-end="url(#ah-p7)"/><text x="258" y="68" class="s mid">varme, syre, base,</text><text x="258" y="106" class="s mid">salt eller alkohol</text><line x1="366" y1="84" x2="400" y2="66" class="pbond"/><line x1="400" y1="66" x2="434" y2="92" class="pbond"/><line x1="434" y1="92" x2="468" y2="72" class="pbond"/><line x1="468" y1="72" x2="502" y2="98" class="pbond"/><line x1="502" y1="98" x2="536" y2="76" class="pbond"/><line x1="536" y1="76" x2="570" y2="90" class="pbond"/><circle cx="366" cy="84" r="12" class="prot"/><circle cx="400" cy="66" r="12" class="prot"/><circle cx="434" cy="92" r="12" class="prot"/><circle cx="468" cy="72" r="12" class="prot"/><circle cx="502" cy="98" r="12" class="prot"/><circle cx="536" cy="76" r="12" class="prot"/><circle cx="570" cy="90" r="12" class="prot"/><text x="468" y="152" class="s mid">formen er borte: virker ikke</text><line x1="14" y1="180" x2="586" y2="180" class="sep"/><path d="M174,236 C173.5,244.8 161.4,254.5 150.7,261.5 C140.1,268.5 124,277.8 110,278 C96,278.2 77.9,269.9 67,262.9 C56.1,255.9 44.5,244.8 44.7,236 C44.9,227.2 57.5,217 68.4,210 C79.2,202.9 95.8,193.8 110,193.6 C124.2,193.4 142.8,201.8 153.4,208.8 C164.1,215.9 174.5,227.2 174,236Z" class="eggraw"/><circle cx="102" cy="234" r="17" class="yolk"/><text x="110" y="298" class="s mid">rått egg: hviten er klar</text><line x1="186" y1="236" x2="330" y2="236" class="ln" marker-end="url(#ah-p7)"/><text x="258" y="222" class="s mid">varme</text><path d="M538,236 C537.4,245.1 523.2,254.6 511.6,262.1 C499.9,269.7 482.9,281.1 468,281.4 C453.1,281.6 434.1,271.2 422,263.6 C409.8,256.1 395,245.1 395.2,236 C395.4,226.9 411.3,216.8 423.5,209.3 C435.6,201.8 452.7,191.3 468,191.1 C483.3,190.8 503.4,200.3 515,207.8 C526.7,215.3 538.6,226.9 538,236Z" class="eggcooked"/><circle cx="460" cy="234" r="17" class="yolk"/><text x="468" y="298" class="s mid">stekt egg: hvit og fast</text></svg></div><figcaption>Varme ødelegger formen til proteinet. Aminosyrene er der fortsatt, men proteinet virker ikke lenger.</figcaption></figure><div class="more"><p>Når du steker et egg, blir eggehviten hvit og fast. Proteinene er denaturert, og egget blir aldri flytende igjen. Derfor er også veldig høy feber farlig: viktige proteiner i kroppen kan begynne å miste formen.</p></div>
+</div>
+</article></div>
+</div>
+</section>
+<section class="sec" id="huskelapp" aria-labelledby="huskelapp-h">
+<div class="wrap">
+<header class="sec-head"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="9" y="6" width="38" height="44" rx="4" class="notep"/><path d="M17 19 H39 M17 28 H39 M17 37 H31" class="ln"/></svg><h2 id="huskelapp-h">Huskelapp</h2><p class="count">alt på ett sted</p><p class="intro">De viktigste forskjellene mellom de tre næringsstoffene som gir energi.</p></header>
+<div class="sum-wrap"><table class="sum">
+<thead><tr><td></td><th scope="col"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><polygon points="52,28 40,48.8 16,48.8 4,28 16,7.2 40,7.2" class="carb"/></svg>Karbohydrater</th><th scope="col"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="5" y="7" width="13" height="42" rx="3" class="fat"/><polyline points="18,15 26.7,10 35.3,15 44,10 52.6,15" class="fa"/><polyline points="18,28 26.7,23 35.3,28 44,23 52.6,28" class="fa"/><polyline points="18,41 26.7,36 35.3,41 44,36 52.6,41" class="fa"/></svg>Fett</th><th scope="col"><svg class="dia sig" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M11 37 L28 20 L45 37" class="pbond"/><circle cx="11" cy="37" r="9" class="prot"/><circle cx="28" cy="20" r="9" class="prot"/><circle cx="45" cy="37" r="9" class="prot"/></svg>Proteiner</th></tr></thead>
+<tbody>
+<tr><th scope="row">Byggesteiner</th><td>Monosakkarider, for eksempel glukose</td><td>Glyserol og tre fettsyrer</td><td>20 ulike aminosyrer</td></tr>
+<tr><th scope="row">Grunnstoffer</th><td>C, H, O</td><td>C, H, O</td><td>C, H, O og N</td></tr>
+<tr><th scope="row">Energi per gram</th><td>17 kJ (4 kcal)</td><td>37 kJ (9 kcal)</td><td>17 kJ (4 kcal)</td></tr>
+<tr><th scope="row">Viktigste oppgave</th><td>Rask energi</td><td>Energilager, varme og cellemembraner</td><td>Bygge og reparere, enzymer</td></tr>
+<tr><th scope="row">Lager i kroppen</th><td>Glykogen i leveren og musklene</td><td>Fettvev</td><td>Ikke noe eget lager</td></tr>
+<tr><th scope="row">Finnes i</th><td>Brød, pasta, ris, poteter og frukt</td><td>Smør, olje, nøtter og fet fisk</td><td>Kjøtt, fisk, egg, melk og bønner</td></tr>
+</tbody></table></div>
+</div>
+</section></main>
+<footer class="foot"><div class="wrap">
+<p>Laget ut fra arket «Repetisjonsoppgaver til prøve – NÆRINGSSTOFFENE».</p>
+<p>Tallene for energi og fett er avrundet. Sjekk alltid med læreboka og notatene fra timene.</p>
+</div></footer>
+<div class="tip" id="tip" aria-hidden="true" hidden></div>
+</div>
+<script>
+(() => {
+  const page = document.querySelector('.page');
+  const toggle = document.getElementById('quiz-toggle');
+  const hint = document.getElementById('quiz-hint');
+  const cards = Array.from(document.querySelectorAll('.q'));
+
+  function setOpen(card, open) {
+    card.classList.toggle('open', open);
+    const b = card.querySelector('.reveal');
+    b.setAttribute('aria-expanded', String(open));
+    b.textContent = open ? 'Skjul svar' : 'Vis svar';
+  }
+  function setQuiz(on) {
+    page.classList.toggle('quiz', on);
+    toggle.setAttribute('aria-pressed', String(on));
+    toggle.textContent = on ? 'Vis alle svar' : 'Test deg selv';
+    hint.textContent = on
+      ? 'Svarene er skjult. Tenk ut svaret selv, og trykk «Vis svar» for å sjekke.'
+      : 'Skjul svarene og prøv å svare selv først.';
+    cards.forEach(c => setOpen(c, false));
+    try { localStorage.setItem('ns-quiz', on ? '1' : '0'); } catch (e) {}
+  }
+  toggle.addEventListener('click', () => setQuiz(!page.classList.contains('quiz')));
+  cards.forEach(c => c.querySelector('.reveal').addEventListener('click', () => setOpen(c, !c.classList.contains('open'))));
+  let saved = null;
+  try { saved = localStorage.getItem('ns-quiz'); } catch (e) {}
+  if (saved === '1') setQuiz(true);
+
+  const links = Array.from(document.querySelectorAll('.toc a'));
+  const secs = links.map(a => document.getElementById(a.getAttribute('href').slice(1)));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        links.forEach(l => l.removeAttribute('aria-current'));
+        const l = links[secs.indexOf(e.target)];
+        if (l) l.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    secs.forEach(s => s && io.observe(s));
+  }
+
+  const tip = document.getElementById('tip');
+  function place(x, y) {
+    const r = tip.getBoundingClientRect();
+    let left = x + 14, top = y - r.height - 12;
+    if (left + r.width > window.innerWidth - 8) left = x - r.width - 14;
+    if (left < 8) left = 8;
+    if (top < 8) top = y + 18;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function show(el, x, y) {
+    const v = document.createElement('strong');
+    v.textContent = el.dataset.v;
+    const l = document.createElement('span');
+    l.textContent = el.dataset.l;
+    tip.replaceChildren(v, l);
+    tip.hidden = false;
+    place(x, y);
+  }
+  document.querySelectorAll('tr[data-v]').forEach(el => {
+    el.addEventListener('pointerenter', e => show(el, e.clientX, e.clientY));
+    el.addEventListener('pointermove', e => place(e.clientX, e.clientY));
+    el.addEventListener('pointerleave', () => { tip.hidden = true; });
+    el.addEventListener('focus', () => { const r = el.getBoundingClientRect(); show(el, r.left + r.width * 0.55, r.top); });
+    el.addEventListener('blur', () => { tip.hidden = true; });
+  });
+})();
+</script>
+</body>
+</html>
